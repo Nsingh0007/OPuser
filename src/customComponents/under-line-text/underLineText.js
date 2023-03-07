@@ -12,7 +12,7 @@ export default function UnderLineText({ text, subText }) {
             content: "";
             height: 2px;
             width: 20%;
-            background:  ${ThemeColors.primary};
+            // background:  ${ThemeColors.primary};
             position: absolute;
             left: calc(0%);
             bottom: -10px;

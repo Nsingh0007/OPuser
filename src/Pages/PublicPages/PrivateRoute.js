@@ -6,8 +6,8 @@ import { ThemeColors } from '../../theme/theme';
 
 
 const PrivateLayout = () => {
-  const auth=false
-  const pathname= useLocation()
+  const auth = false
+  const pathname = useLocation()
   return (
     <>
       <div className='outerDiv'>
@@ -16,8 +16,8 @@ const PrivateLayout = () => {
             <div className='left-flex' style={{ backgroundColor: ThemeColors.light }}>
               <Header />
               <div className="container-flex">
-                {auth?<Outlet />:<Navigate to ='auth' state={{from:pathname}} replace/>}
-                </div>
+                {auth ? <Outlet /> : <Navigate to='auth' state={{ from: pathname }} replace />}
+              </div>
             </div>
             <div className='right-flex' style={{ backgroundColor: ThemeColors.primary }}>
               <img src={img} alt="" className='responsiveImg' />

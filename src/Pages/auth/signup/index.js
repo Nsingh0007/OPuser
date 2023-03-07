@@ -16,10 +16,10 @@ export default function Signup({ setHeight, height, width }) {
     width <= 480 && setHeight(true)
   }, [setHeight, width])
 
-  const Login = () => {
+  const signup = () => {
     console.log("height", height, setHeight)
     setHeight(false)
-    navigate("/")
+    navigate("otp")
   }
   const options = ["Class12", "Class11", "Class10"];
   return (
@@ -67,8 +67,8 @@ export default function Signup({ setHeight, height, width }) {
                   <CustomInput name="password" id="password" onChange={handleChange} placeholder="Password" type="password" lefticon={<PasswordIcon />} righticon={<EyeIcon />} />
                   {errors.password && touched.password && (<div className="input-feedback">{errors.password}</div>)}
 
-                  <CustomButton title="Signup" type="submit" />
-                  <FormFooter leftText='Already Have An Account' rightClick={Login} rightText='Login' />
+                  <CustomButton title="Signup" type="submit" onClick={signup} />
+                  <FormFooter leftText='Already Have An Account' rightClick={Signup} rightText='Login' />
                 </form>
               );
             }}

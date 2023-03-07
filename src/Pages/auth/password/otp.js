@@ -8,7 +8,7 @@ import UnderLineText from '../../../customComponents/under-line-text/underLineTe
 import { ThemeColors } from '../../../theme/theme'
 
 export default function Otp() {
-  const [otpfield, setOtpField] = useState(['', '', '', "", "", ''])
+  const [otpfield, setOtpField] = useState(['', '', '', ""])
 
   const rightTxt = {
     color: ThemeColors.primary,
@@ -46,11 +46,16 @@ export default function Otp() {
     }
   }
   return (
-    <section>
-      <UnderLineText text='Enter OTP' subText='Enter the 6 digit code that you received on your email' />
+    <section style={{ border: "1px solid #D9E3EE ", padding: "50px 25px", borderRadius: "10px" }}>
+      <UnderLineText text='Verify Your Mobile Number'
+        subText='Enter the 4 digit verification code that has been sent to your mobile number 1234567890 (Change)'
+      />
+      <UnderLineText
+        subText='Please verify your mobile number to continue' />
+
       <CustomCard>
-        <form>
-          <div style={{ display: 'flex', columnGap: '2rem' }}>
+        <form style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+          <div style={{ display: 'flex', columnGap: '2rem', }}>
             {
               otpfield.map((item, i) =>
                 <CustomInput key={i} name="text" placeholder={item} type="text" inputRef={i === 0 && true} value={item} autoComplete="off" label={item} tabIndex={i} maxLength="1" onClick={handleChange} onKeyUp={inputfocus} />
@@ -63,6 +68,6 @@ export default function Otp() {
           </div>
         </form>
       </CustomCard>
-    </section>
+    </section >
   )
 }

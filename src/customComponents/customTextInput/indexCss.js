@@ -40,7 +40,7 @@ justify-content: center;
 
 export const formControl = {
   display: 'block',
-  width:'-webkit-fill-available',
+  width: '-webkit-fill-available',
   padding: ' 0.375rem 0.75rem',
   fontSize: ' 1rem',
   lineHeight: ' 2.4rem',
@@ -52,15 +52,16 @@ export const formControl = {
 }
 export const formControlOtp = {
   display: 'block',
-  width: '50%',
-  padding: '0.375rem 0.75rem',
+  width: '40%',
+  padding: '.375rem 0.50rem',
   fontSize: ' 1rem',
   lineHeight: ' 2.4rem',
   backgroundClip: 'padding-box',
   background: ThemeColors.inputbg,
-  border: 'none',
+  border: '1px solid #E5ECF0',
   borderRadius: '5px',
   textAlign: 'center'
+
 }
 export const formSelect = {
   display: 'block',

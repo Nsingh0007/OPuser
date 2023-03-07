@@ -25,8 +25,8 @@ const LoginPage = ({ auth, setAuth, setHeight, height }) => {
   const forgotPass = () => {
     navigate('forgot-password')
   }
-  const SignUp = () => {
-    navigate('sign-up')
+  const login = () => {
+    navigate('otp')
   }
   return (
     <section>
@@ -64,7 +64,7 @@ const LoginPage = ({ auth, setAuth, setHeight, height }) => {
                 </div>
                 <CustomButton title="Login" type="submit" />
 
-                <p style={{ color: ThemeColors.primary }} className="pointer" onClick={SignUp} >  SignUp</p>
+                <p style={{ color: ThemeColors.primary }} className="pointer" onClick={login} >  SignUp</p>
                 {/* <FormFooter leftText='Need An Account?' rightClick={signUp} rightText='Signup' />s */}
               </form>
             );
