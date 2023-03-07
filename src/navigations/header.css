@@ -1,0 +1,19 @@
+.logoTest {
+  font-size: 36px;
+  font-weight: 500;
+  color: #000000;
+  font-family: "Outfit", sans-serif;
+}
+.H-btn {
+  /* style={{ display: "flex", gap: "10px" }} */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.H-test {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0b1c30;
+  font-family: "Outfit", sans-serif;
+}

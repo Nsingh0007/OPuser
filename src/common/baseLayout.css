@@ -1,0 +1,82 @@
+.outerDivLogin {
+  width: 100%;
+}
+
+.height {
+  height: 100vh;
+}
+
+.height1 {
+  height: 100vh;
+}
+.outerflex {
+  display: grid;
+  height: 86%;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  flex-wrap: wrap;
+}
+.left-flex {
+  flex: 1 1 45%;
+  height: 86%;
+  min-width: 335px;
+  padding-inline: min(13%, 7vw);
+  /* height: max-content; */
+}
+.container-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: min(8%, 7vh);
+}
+
+.right-flex {
+  flex: 1 1 55%;
+  height: 91%;
+  width: 100%;
+
+  min-width: 335px;
+}
+.innerDiv {
+  width: 100%;
+  height: 100%;
+}
+
+input::placeholder {
+  text-indent: 2.5rem;
+}
+
+form {
+  width: 85%;
+  min-width: 256px;
+  margin: 2rem;
+}
+
+input.error {
+  border-color: red;
+}
+
+.input-feedback {
+  color: red;
+  margin-top: 0.25rem;
+}
+select {
+  min-width: 298.55px;
+}
+
+@media screen and (min-width: 660px) and (max-width: 1000px) {
+  .left-flex {
+    padding-inline: min(13%, 3vw);
+  }
+}
+@media screen and (max-width: 660px) {
+  .outerflex {
+    grid-template-columns: 1fr;
+  }
+  .right-flex {
+    display: none;
+  }
+  .responsiveImg {
+    display: none;
+  }
+}
