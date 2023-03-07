@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet, Route, Routes } from 'react-router-dom';
 
-import img from '../assets/images/layoutImg.png';
 import Header from '../navigations/header';
 import LoginPage from '../Pages/auth/login';
 import ForgotPasswordPage from '../Pages/auth/password/forgot';
@@ -16,13 +15,7 @@ export function BaseLayout({ height }) {
   return (
     <div className='height1 outerDivLogin'>
       <Header />
-      <div className='outerflex'>
-        <div className='left-flex ' >
-          <div className="container-flex"><Outlet /></div>
-        </div>
-        <img src={img} alt="" className='right-flex' />
-      </div>
-
+      <Outlet />
     </div>
   )
 }

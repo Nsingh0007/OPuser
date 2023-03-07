@@ -20,7 +20,7 @@ export const StyledInput = styled.div`
 `;
 export const InputLabel = styled.label`
   color: ${ThemeColors.other};
-  margin-bottom: 4rem;
+  // margin-bottom: 4rem;
   font-family:medium;
 `;
 
