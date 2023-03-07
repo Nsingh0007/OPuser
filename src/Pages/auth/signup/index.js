@@ -2,13 +2,12 @@ import { Formik } from 'formik';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
-import { ClassIcon, EyeIcon, MailIcon, PasswordIcon, Phonenumber, UserIcon } from '../../../assets/icon/inputIcon';
+import { EyeIcon, MailIcon, PasswordIcon, Phonenumber, UserIcon } from '../../../assets/icon/inputIcon';
 import { emailregex, passwordRegex } from '../../../assets/regex';
 import CustomButton from '../../../customComponents/button/customButton';
 import CustomCard from '../../../customComponents/card/CustomCard';
 import CustomInput from '../../../customComponents/customTextInput';
 import FormFooter from '../../../customComponents/form-footer/form-footer';
-import CustomSelect from '../../../customComponents/select/customeSelect';
 import UnderLineText from '../../../customComponents/under-line-text/underLineText';
 export default function Signup({ setHeight, height, width }) {
   const navigate = useNavigate();
@@ -21,10 +20,9 @@ export default function Signup({ setHeight, height, width }) {
     setHeight(false)
     navigate("/")
   }
-  const options = ["Class12", "Class11", "Class10"];
   return (
     <>
-      <div className='section'>
+      <div className='section' style={{ border: "1px solid #D9E3EE", borderRadius: "20px" }}>
         <UnderLineText text='Hey, enter your details to get sign up to create your account' subText='when an unknown printer took a galley of type and scrambled it to make a type specimen book.' />
         <CustomCard>
           <Formik

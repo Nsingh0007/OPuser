@@ -4,24 +4,26 @@ import * as Yup from "yup";
 import { EyeIcon, MailIcon, PasswordIcon } from '../../../assets/icon/inputIcon';
 import { emailregex, passwordRegex } from '../../../assets/regex';
 import CustomButton from '../../../customComponents/button/customButton';
+import CustomCard from '../../../customComponents/card/CustomCard';
 import CustomInput from '../../../customComponents/customTextInput';
-import FormFooter from '../../../customComponents/form-footer/form-footer';
 import UnderLineText from '../../../customComponents/under-line-text/underLineText';
 import { ThemeColors } from '../../../theme/theme';
-import CustomCard from '../../../customComponents/card/CustomCard';
-
 import { Formik } from "formik";
+
+/* eslint-disable */
 const LoginPage = ({ auth, setAuth, setHeight, height }) => {
   const { innerWidth: width } = window;
   const navigate = useNavigate();
   const pathname = useLocation()
   const from = pathname.pathname ? pathname.pathname : "/"
   console.log(from);
-  const signUp = () => {
-    console.log("innerwidth", width)
-    width <= 480 && setHeight(true)
-    navigate("sign-up")
-  }
+
+  // const signUp = () => {
+  //   console.log("innerwidth", width)
+  //   width <= 480 && setHeight(true)
+  //   navigate("sign-up")
+  // }
+
   const forgotPass = () => {
     navigate('forgot-password')
   }
@@ -52,8 +54,7 @@ const LoginPage = ({ auth, setAuth, setHeight, height }) => {
             } = props;
             return (
               <form onSubmit={handleSubmit} style={{ border: "1px solid #D9E3EE ", padding: "50px 25px", borderRadius: "10px" }}>
-
-                <UnderLineText text='Hey, enter your details to get sign up to create your account' subText='When an unknown printer took a galley of type and scrambled it to make a type specimen book.' />
+                <UnderLineText text='Hey, enter your details to get sign in to your account' subText='When an unknown printer took a galley of type and scrambled it to make a type specimen book.' />
                 <CustomInput name="email" id="email" onChange={handleChange} placeholder="Email Address" type="email" label="Email Address" lefticon={<MailIcon />} righticon={""} />
                 {errors.email && touched.email && (<div className="input-feedback">{errors.email}</div>)}
                 <CustomInput name="password" id="passowrd" onChange={handleChange} placeholder="Password" label="Password" lefticon={<PasswordIcon />} righticon={<EyeIcon />} />

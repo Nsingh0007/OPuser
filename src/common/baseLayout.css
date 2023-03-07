@@ -64,12 +64,12 @@ select {
   min-width: 298.55px;
 }
 
-@media screen and (min-width: 660px) and (max-width: 1000px) {
+@media screen and (min-width: 750px) and (max-width: 1000px) {
   .left-flex {
     padding-inline: min(13%, 3vw);
   }
 }
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 750px) {
   .outerflex {
     grid-template-columns: 1fr;
   }

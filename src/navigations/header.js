@@ -1,6 +1,5 @@
 import React from "react";
 import CustomButton from "../customComponents/button/customButton";
-import UnderLineText from "../customComponents/under-line-text/underLineText";
 import "../navigations/header.css";
 export default function Header() {
     return (
@@ -8,8 +7,7 @@ export default function Header() {
             <div className="logoTest">Online Practice</div>
             <div className="H-btn">
                 <div className="H-test">Already have an account?</div>
-
-                <CustomButton marginTop="0px" width="111px" title="Login" type="submit" />
+                <CustomButton width="111px" title="Login" type="submit" />
             </div>
         </header>
     );

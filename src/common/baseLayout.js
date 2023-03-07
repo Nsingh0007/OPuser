@@ -9,7 +9,6 @@ import OtpPage from '../Pages/auth/password/otp';
 import ResetPage from '../Pages/auth/password/reset';
 import SignUpPage from '../Pages/auth/signup';
 import UploadPage from '../Pages/auth/uploadPhoto';
-import { ThemeColors } from '../theme/theme';
 import "./baseLayout.css";
 
 export function BaseLayout({ height }) {
@@ -19,10 +18,8 @@ export function BaseLayout({ height }) {
       <Header />
       <div className='outerflex'>
         <div className='left-flex ' >
-
           <div className="container-flex"><Outlet /></div>
         </div>
-
         <img src={img} alt="" className='right-flex' />
       </div>
 
