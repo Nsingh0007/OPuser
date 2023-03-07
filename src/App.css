@@ -2,7 +2,6 @@
     --bgColor: #243441;
     --color: red;
   }
-  
   body {
     margin: 0;
     padding: 0;
@@ -27,7 +26,6 @@
   .SemiBold {
     font-family: SemiBold;
   }
-  
   .container {
     width: 100%;
     height: 100vh;
@@ -36,28 +34,23 @@
     display: flex;
     height: 100%;
   }
-  
   .half1 {
     flex: 1 1 45%;
     height: 100%;
     color: black;
-  
     text-align: center;
   }
   .half2 {
     flex: 1 1 55%;
     height: 100%;
     color: black;
-  
     text-align: center;
   }
-  
   .underline-small {
     color: attr(data-content);
     display: inline-block;
     position: relative;
   }
-  
   .underline-small::after {
     content: "";
     height: 2px;
@@ -72,11 +65,9 @@
     height: 50%;
     min-width: 350px;
   }
-  
   .pointer {
     cursor: pointer;
   }
-  
   header {
     /* padding: 1rem 0 0rem 5.5rem; */
     display: flex;
@@ -86,7 +77,6 @@
     padding: 0px 8%;
     border-bottom: 1px solid #d9deec;
   }
-  
   @media screen and (max-width: 480px) {
     header {
       justify-content: center;
@@ -94,7 +84,6 @@
       padding-top: 1rem;
     }
   }
-  
   .rounded-checkbox {
     width: 15px;
     height: 15px;

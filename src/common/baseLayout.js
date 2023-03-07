@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet, Route, Routes } from 'react-router-dom';
 
-import img from '../assets/images/layoutImg.png';
 import Header from '../navigations/header';
 import LoginPage from '../Pages/auth/login';
 import ForgotPasswordPage from '../Pages/auth/password/forgot';
@@ -9,7 +8,6 @@ import OtpPage from '../Pages/auth/password/otp';
 import ResetPage from '../Pages/auth/password/reset';
 import SignUpPage from '../Pages/auth/signup';
 import UploadPage from '../Pages/auth/uploadPhoto';
-import { ThemeColors } from '../theme/theme';
 import "./baseLayout.css";
 
 export function BaseLayout({ height }) {
@@ -17,15 +15,7 @@ export function BaseLayout({ height }) {
   return (
     <div className='height1 outerDivLogin'>
       <Header />
-      <div className='outerflex'>
-        <div className='left-flex ' >
-
-          <div className="container-flex"><Outlet /></div>
-        </div>
-
-        <img src={img} alt="" className='right-flex' />
-      </div>
-
+      <Outlet />
     </div>
   )
 }
