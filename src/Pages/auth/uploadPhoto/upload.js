@@ -1,60 +1,57 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import { UploadIcon } from "../../../assets/icon/inputIcon";
 import CustomButton from "../../../customComponents/button/customButton";
-import UnderLineText from '../../../customComponents/under-line-text/underLineText';
-import CustomCard from '../../../customComponents/card/CustomCard';
+import CustomCard from "../../../customComponents/card/CustomCard";
+import UnderLineText from "../../../customComponents/under-line-text/underLineText";
 
 function removeItems(arr, item) {
-    for (var i = 0; i < item; i++) {
-        arr.pop();
-    }
+  for (var i = 0; i < item; i++) {
+    arr.pop();
+  }
 }
 
 function useFiles({ initialState = [], maxFiles }) {
-    const [state, setstate] = useState(initialState);
-    function withBlobs(files) {
-        const destructured = [...files];
-        if (destructured.length > maxFiles) {
-            const difference = destructured.length - maxFiles;
-            removeItems(destructured, difference);
-        }
-        const blobs = destructured
-            .map(file => {
-                if (file.type.includes("image")) {
-                    console.log("image");
-                    file.preview = URL.createObjectURL(file);
-                    return file;
-                }
-                console.log("not image");
-                return null;
-            })
-            .filter(elem => elem !== null);
-
-        setstate(blobs);
+  const [state, setstate] = useState(initialState);
+  function withBlobs(files) {
+    const destructured = [...files];
+    if (destructured.length > maxFiles) {
+      const difference = destructured.length - maxFiles;
+      removeItems(destructured, difference);
     }
-    return [state, withBlobs];
+    const blobs = destructured
+      .map((file) => {
+        if (file.type.includes("image")) {
+          console.log("image");
+          file.preview = URL.createObjectURL(file);
+          return file;
+        }
+        console.log("not image");
+        return null;
+      })
+      .filter((elem) => elem !== null);
+
+    setstate(blobs);
+  }
+  return [state, withBlobs];
 }
 
 function Upload({ onDrop, maxFiles = 1 }) {
-    const [isFile, setIsFile] = useState(true);
-    const [over, setover] = useState(false);
-    const [files, setfiles] = useFiles({ maxFiles });
-    const $input = useRef(null);
-    useEffect(() => {
-        if (onDrop) {
-            onDrop(files);
-        }
-
-    }, [files, onDrop]);
-    const reset = () => {
-        setIsFile(true)
-        setfiles('');
+  const [isFile, setIsFile] = useState(true);
+  const [over, setover] = useState(false);
+  const [files, setfiles] = useFiles({ maxFiles });
+  const $input = useRef(null);
+  useEffect(() => {
+    if (onDrop) {
+      onDrop(files);
     }
-    return (
-        <>
-            <section>
-                <UnderLineText text='Upload Profile Photo' subText='when an unknown printer took a galley of type and scrambled it to make a type specimen book.' />
+  }, [files, onDrop]);
+  const reset = () => {
+    setIsFile(true);
+    setfiles("");
+  };
+  return (
+    <>
+          <UnderLineText text='Upload Profile Photo'/>
                 {isFile &&
                     <CustomCard>
                         <div style={{ margin: '10px' }}
@@ -99,6 +96,7 @@ function Upload({ onDrop, maxFiles = 1 }) {
                             </div>
                         </div>
                     </CustomCard>
+                    
                 }
                 {!isFile && files.map(file => (
                     <>
@@ -111,11 +109,9 @@ function Upload({ onDrop, maxFiles = 1 }) {
                         </div>
                     </>
                 ))}
-            </section>
-
-
-        </>
-    );
+          
+    </>
+  );
 }
 
 export { Upload };

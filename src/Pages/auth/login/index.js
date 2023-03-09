@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import {
   EyeIcon,
   MailIcon,
-  PasswordIcon
+  PasswordIcon,
 } from "../../../assets/icon/inputIcon";
 import { emailregex, passwordRegex } from "../../../assets/regex";
 import CustomButton from "../../../customComponents/button/customButton";
@@ -13,7 +13,7 @@ import CustomCard from "../../../customComponents/card/CustomCard";
 import CustomInput from "../../../customComponents/customTextInput";
 import UnderLineText from "../../../customComponents/under-line-text/underLineText";
 import { ThemeColors } from "../../../theme/theme";
-import img from '../../../assets/images/layoutImg.png';
+import img from "../../../assets/images/layoutImg.png";
 const LoginPage = ({ auth, setAuth, setHeight, height }) => {
   const { innerWidth: width } = window;
   const navigate = useNavigate();
@@ -32,8 +32,9 @@ const LoginPage = ({ auth, setAuth, setHeight, height }) => {
     navigate("sign-up");
   };
   return (
-      <div className="row m-0">
-        <div className="col-lg-5 col-md-4">
+    <div className="outerflex">
+      <div className="left-flex ">
+        <div className="container-flex">
           <CustomCard>
             <Formik
               initialValues={{ email: "", password: "" }}
@@ -126,10 +127,9 @@ const LoginPage = ({ auth, setAuth, setHeight, height }) => {
             </Formik>
           </CustomCard>
         </div>
-        <div className="col-lg-7 col-md-6">
-          <img src={img} alt="" className="right-flex" />
-        </div>
       </div>
+      <img src={img} alt="" className="right-flex" />
+    </div>
   );
 };
 

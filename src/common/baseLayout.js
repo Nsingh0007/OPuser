@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Outlet, Route, Routes } from 'react-router-dom';
-
 import Header from '../navigations/header';
 import LoginPage from '../Pages/auth/login';
 import ForgotPasswordPage from '../Pages/auth/password/forgot';
