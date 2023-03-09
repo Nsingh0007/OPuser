@@ -8,12 +8,14 @@ export const ThemeColors = {
   other: "#7E7383",
   deactive: "#B3A7B7",
   black: "#000000",
+  bgDark: "#0B1C30",
   white: "#FFFFFF",
   icon: "#BA8ACE",
   disable: "#8A9CB0",
   buttonbg: "#E5ECF0",
   inputbg: "#FAFAFA",
   selectedInput: "#F0F5FB",
+
 
   font: {
     SmallHeading: {
@@ -77,8 +79,8 @@ export const ThemeColors = {
 
     largHeading: {
       fontFamily: 'Outfit',
-      fontStyle: "normal",
-      fontWeight: "400",
+      fontStyle: "Regular",
+      fontWeight: 400,
       fontSize: "32px",
       lineHeight: "40px",
     },

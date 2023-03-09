@@ -31,10 +31,11 @@ color: white;
 padding: 10px;
 text-decoration: none;
 font-size: 20px;
-font-family: SemiBold;
+// font-family: SemiBold;
 cursor: pointer;
 display: flex;
 justify-content: center;
+align-items: center;
 `
 
 export const formControl = {

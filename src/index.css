@@ -1,24 +1,20 @@
 @font-face {
-    font-family: "Bold"; /*Can be any text*/
-    src: local("Bold"), url("./assets/fonts/IBMPlexSans-Bold.ttf") format("truetype");
+    font-family: "Medium";
+    src: local("Medium"), url("./assets/fonts/Outfit-Medium.ttf") format("truetype");
 }
 @font-face {
-    font-family: "BoldItalic"; /*Can be any text*/
-    src: local("BoldItalic"), url("./assets/fonts/IBMPlexSans-BoldItalic.ttf") format("truetype");
+    font-family: "Regular";
+    src: local("Regular"), url("./assets/fonts/Outfit-Regular.ttf") format("truetype");
 }
 @font-face {
-    font-family: "Light"; /*Can be any text*/
-    src: local("Light"), url("./assets/fonts/IBMPlexSans-Light.ttf") format("truetype");
+    font-family: "Bold";
+    src: local("Bold"), url("./assets/fonts/Outfit-Bold.ttf") format("truetype");
 }
 @font-face {
-    font-family: "Regular"; /*Can be any text*/
-    src: local("Regular"), url("./assets/fonts/IBMPlexSans-Regular.ttf") format("truetype");
+    font-family: "SemiBold";
+    src: local("SemiBold"), url("./assets/fonts/Outfit-SemiBold.ttf") format("truetype");
 }
 @font-face {
-    font-family: "Medium"; /*Can be any text*/
-    src: local("Medium"), url("./assets/fonts/IBMPlexSans-Medium.ttf") format("truetype");
-}
-@font-face {
-    font-family: "SemiBold"; /*Can be any text*/
-    src: local("SemiBold"), url("./assets/fonts/IBMPlexSans-SemiBold.ttf") format("truetype");
+    font-family: "ExtraBold";
+    src: local("ExtraBold"), url("./assets/fonts/Outfit-ExtraBold.ttf") format("truetype");
 }
