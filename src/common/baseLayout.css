@@ -13,7 +13,7 @@
   display: grid;
   height: 86%;
   width: 100%;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.7fr 0.9fr;
   flex-wrap: wrap;
 }
 .left-flex {
@@ -32,9 +32,8 @@
 
 .right-flex {
   flex: 1 1 55%;
-  height: 91%;
+  height: 85%;
   width: 100%;
-
   min-width: 335px;
 }
 .innerDiv {
