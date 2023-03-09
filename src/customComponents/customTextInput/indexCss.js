@@ -38,16 +38,13 @@ justify-content: center;
 `
 
 export const formControl = {
-  display: 'block',
-  width:'-webkit-fill-available',
-  padding: ' 0.375rem 0.75rem',
-  fontSize: ' 1rem',
-  lineHeight: ' 2.4rem',
-  backgroundClip: 'padding-box',
-  background: ThemeColors.inputbg,
-  border: 'none',
-  textIndent: '2.5rem',
-  borderRadius: '5px',
+  display: "block",
+  padding: " 0.375rem 0.75rem",
+  fontSize: "14px",
+  lineHeight: "2.4rem",
+  backgroundClip: "padding-box",
+  // border: "none",
+  borderRadius: "5px",
 }
 export const formControlOtp = {
   display: 'block',

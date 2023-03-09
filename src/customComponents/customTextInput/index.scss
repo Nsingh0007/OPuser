@@ -1,0 +1,147 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+.right-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+}
+
+.did-floating-label-content {
+    position: relative;
+}
+.input-container {
+    // display: flex;
+    // align-items: center;
+    position: relative;
+}
+.position {
+    position: absolute;
+    z-index: 10;
+    left: 12px;
+    top: 12px;
+}
+.did-floating-label {
+    color: #1e4c82;
+    font-size: 12px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: 8px;
+    padding: 0 5px;
+    background: #fff;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.did-floating-input,
+.did-floating-select {
+    font-size: 12px;
+    display: block;
+    width: 100%;
+    height: 36px;
+    padding: 0 20px;
+    background: #fff;
+    color: #323840;
+    border: 1px solid #e5ecf0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-indent: 25px;
+    &:focus {
+        outline: none;
+        border: 1px solid #4fa4f4;
+        ~ .did-floating-label {
+            top: -8px;
+            font-size: 12px;
+            // left: 10px;
+        }
+        ~ .input-group-text {
+            border: 1px solid #4fa4f4;
+        }
+    }
+}
+
+select.did-floating-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+select.did-floating-select::-ms-expand {
+    display: none;
+}
+
+// .did-floating-input:not(::placeholder) ~ .did-floating-label {
+//     top: -8px;
+//     font-size: 12px;
+// }
+.did-floating-input:not(:placeholder-shown) ~ .did-floating-label {
+    top: -8px;
+    font-size: 12px;
+}
+.did-floating-input:not(:placeholder-shown) {
+    outline: none;
+    border: 1px solid #4fa4f4;
+    .did-floating-label {
+        outline: none;
+        border: 1px solid #4fa4f4;
+    }
+}
+.did-floating-input:placeholder-shown ~ .did-floating-label {
+    display: none;
+    // appearance: none;
+}
+.did-floating-input:focus ~ .did-floating-label {
+    color: #4fa4f4;
+    display: block;
+}
+
+.did-error-input {
+    .did-floating-input,
+    .did-floating-select {
+        border: 2px solid #9d3b3b;
+        color: #9d3b3b;
+    }
+    .did-floating-label {
+        font-weight: 600;
+        color: #9d3b3b;
+    }
+}
+
+.input-group {
+    display: flex;
+    .did-floating-input {
+        border-radius: 0 4px 4px 0;
+        border-left: 0;
+        padding-left: 0;
+    }
+}
+.input-group-append {
+    display: flex;
+    align-items: center;
+    /*   margin-left:-1px; */
+}
+.input-group-text {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    height: 34px;
+    color: #323840;
+    padding: 0 5px 0 20px;
+    font-size: 12px;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid #e5ecf0;
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+}
+.did-floating-input::placeholder {
+    color: #a9becc;
+    text-align: start;
+    position: absolute;
+    left: 0px;
+    top: 15px;
+}

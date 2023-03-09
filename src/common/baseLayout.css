@@ -46,11 +46,11 @@ input::placeholder {
   text-indent: 2.5rem;
 }
 
-form {
+/* form {
   width: 85%;
   min-width: 256px;
   margin: 2rem;
-}
+} */
 
 input.error {
   border-color: red;
