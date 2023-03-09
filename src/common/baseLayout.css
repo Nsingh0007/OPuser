@@ -1,5 +1,7 @@
 .outerDivLogin {
   width: 100%;
+  overflow: hidden;
+
 }
 
 .height {
@@ -18,16 +20,16 @@
 }
 .left-flex {
   flex: 1 1 45%;
-  height: 86%;
+  height: 85%;
   min-width: 335px;
-  padding-inline: min(13%, 7vw);
+  /* padding-inline: min(13%, 7vw); */
   /* height: max-content; */
 }
 .container-flex {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: min(8%, 7vh);
+  /* margin-top: min(8%, 7vh); */
 }
 
 .right-flex {

@@ -57,11 +57,7 @@ const LoginPage = ({ auth, setAuth, setHeight, height }) => {
                 return (
                   <form
                     onSubmit={handleSubmit}
-                    style={{
-                      border: "1px solid #D9E3EE ",
-                      padding: "50px 25px",
-                      borderRadius: "10px",
-                    }}
+                    style={ThemeColors.cardcenter}
                   >
                     <UnderLineText
                       text="Hey, enter your details to get sign up to create your account"

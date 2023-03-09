@@ -8,15 +8,15 @@ export default function UnderLineText({ text, subText }) {
         position: relative;
         font-family: Light;
         font-size: 2rem;
-        &:after {
-            content: "";
-            height: 2px;
-            width: 20%;
-            background:  ${ThemeColors.primary};
-            position: absolute;
-            left: calc(0%);
-            bottom: -10px;
-        }
+        // &:after {
+        //     content: "";
+        //     height: 2px;
+        //     width: 20%;
+        //     background:  ${ThemeColors.primary};
+        //     position: absolute;
+        //     left: calc(0%);
+        //     bottom: -10px;
+        // }
         `;
     return (
         <>

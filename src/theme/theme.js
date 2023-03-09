@@ -13,7 +13,23 @@ export const ThemeColors = {
   disable:"#8A9CB0",
   buttonbg:"#E5ECF0",
   inputbg:"#FAFAFA",
-  selectedInput:"#F0F5FB"
+  selectedInput:"#F0F5FB" ,
+
+  cardcenter:{
+      border: "1px solid #D9E3EE ",
+      padding: "50px 25px",
+      borderRadius: "10px",
+      // margin:'auto'
+  },
+  font: {
+    cardheading: {
+      fontSize: '32px',
+      fontWeight: 500,
+      lineHeight: "40px",
+      color: "#0B1C30",
+      fontFamily: 'Outfit'
+    },
+  }
 
 };
 export const ThemeColorContext = createContext({
