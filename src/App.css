@@ -190,3 +190,16 @@ ul.show {
     width: 117%;
   }
 }
+
+.input-feedback {
+  color: red;
+  margin-top: 1px;
+  font-size: 12px;
+}
+.pointer {
+  cursor: pointer;
+}
+
+* {
+  /* outline: 1px solid green; */
+}
