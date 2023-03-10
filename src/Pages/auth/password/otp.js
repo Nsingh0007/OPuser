@@ -5,17 +5,13 @@ import CustomButton from '../../../customComponents/button/customButton'
 import CustomCard from '../../../customComponents/card/CustomCard'
 import CustomInput from '../../../customComponents/customTextInput'
 import UnderLineText from '../../../customComponents/under-line-text/underLineText'
-import { ThemeColors } from '../../../theme/theme'
+import { ThemeColors } from '../../../theme/theme';
+import verifyImg from "../../../assets/images/verifyImg.png"
+import { LargHeading, NormalTileHeading } from '../../../customComponents/DynamicText/Heading'
 
 export default function Otp() {
-  const [otpfield, setOtpField] = useState(['', '', '', "", "", ''])
+  const [otpfield, setOtpField] = useState(['', '', '', ""])
 
-  const rightTxt = {
-    color: ThemeColors.primary,
-    fontSize: 'large',
-    fontFamily: 'SemiBold',
-    fontWeight: '600'
-  }
   useEffect(() => {
   }, [])
 
@@ -23,7 +19,12 @@ export default function Otp() {
     let isNumber = numberOnly.test(e.target.value)
     if (!isNumber) return
     let otpfieldcopy = [...otpfield]
-    otpfieldcopy[index] = e.target.value; setOtpField(otpfieldcopy)
+    otpfieldcopy[index] = e.target.value;
+    setOtpField(otpfieldcopy)
+  }
+  const verify = (e) => {
+    e.preventDefault();
+
   }
 
   const inputfocus = (elmnt, ind) => {
@@ -45,24 +46,35 @@ export default function Otp() {
       }
     }
   }
+
   return (
-    <section>
-      <UnderLineText text='Enter OTP' subText='Enter the 6 digit code that you received on your email' />
-      <CustomCard>
-        <form>
-          <div style={{ display: 'flex', columnGap: '2rem' }}>
-            {
-              otpfield.map((item, i) =>
-                <CustomInput key={i} name="text" placeholder={item} type="text" inputRef={i === 0 && true} value={item} autoComplete="off" label={item} tabIndex={i} maxLength="1" onClick={handleChange} onKeyUp={inputfocus} />
-              )
-            }
+    <div className="Aouterflex">
+      <div className="Aleft-flex">
+        <div className="Acontainer-flex" style={{ padding: "7% 7% 0 18%" }}>
+          <div className='card px-4 py-3 ' style={{ border: "1px solid #D9E3EE", borderRadius: "20px", marginTop: "10rem" }}>
+            <LargHeading text='Verify Your Mobile Number' />
+            <label>Enter the 4 digit verification code that has been sent to your mobile number
+              <b> 1234567890 <a className='pointer' style={{ color: ThemeColors.lightBlue }} onClick={() => { console.log("chnage") }} >(Change)</a>  </b>
+            </label>
+            <NormalTileHeading text="Please verify your mobile number to continue." />
+            <div>
+              <form>
+                <div className='pb-3 d-flex justify-content-center' style={{ gap: "20px" }}>
+                  {
+                    otpfield.map((item, i) =>
+                      <CustomInput key={i} name="text" placeholder={"-"} type="text" inputRef={i === 0 && true} value={item} autoComplete="off" label={item} tabIndex={i} maxLength="1" onClick={handleChange} onKeyUp={inputfocus} />
+                    )
+                  }
+                </div>
+                <CustomButton title="Continue" type="button" style={{ color: ThemeColors.white }} disable={(otpfield[0] && otpfield[1] && otpfield[2] && otpfield[3]) ? false : true} func={(e) => verify(e)} />
+                <p className='text-center pt-3' >00:00</p>
+                <p className='text-center' style={{ fontFamily: 'SemiBold', fontWeight: 400, fontSize: "14px" }} >Haven’t received your OTP yet ? <a className='pointer' style={{ color: ThemeColors.lightBlue }} onClick={() => { console.log("chnage") }} >Resend</a></p>
+              </form>
+            </div>
           </div>
-          <CustomButton title="Continue" />
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', }}>
-            <p style={rightTxt} className="pointer" >Resend</p>
-          </div>
-        </form>
-      </CustomCard>
-    </section>
+        </div>
+      </div>
+      <img src={verifyImg} alt="" className="Aright-flex" />
+    </div>
   )
 }

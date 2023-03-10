@@ -5,7 +5,7 @@ import { formControl, formControlOtp, StyledInput } from "./indexCss";
 export default function CustomInput(props) {
     const { name, placeholder, type, lefticon, righticon, label, id, value, onChange, maxLength, tabIndex, onKeyUp, onClick, inputRef, isDisabled, min, max, width = "100%", background, height = "52px", rightIconFunc } = props;
     const [inputType, setInputType] = useState(false);
-    const [eyeChange, setEyeChange] = useState(false);
+    // const [eyeChange, setEyeChange] = useState(false);
     const ref = useRef();
     const inputStyle = {
         width: width,
@@ -20,9 +20,9 @@ export default function CustomInput(props) {
     return (
         maxLength === "1" ?
             <StyledInput className={"inputWithIcon"}>
-                <div className="left-icon">{lefticon}</div>
+                {lefticon && <div className="left-icon">{lefticon}</div>}
                 <input ref={ref} type={type} name={name} value={value} style={formControlOtp} maxLength={maxLength} tabIndex={tabIndex} onChange={(e) => onClick(e, tabIndex)} onKeyUp={(e) => onKeyUp(e, tabIndex)} />
-                <div className="right-icon">{righticon}</div>
+                {righticon && <div className="right-icon">{righticon}</div>}
             </StyledInput>
             : <>
                 <div className='input-container'>
@@ -39,7 +39,7 @@ export default function CustomInput(props) {
                     </div>
                     {righticon && <div className="right-icon" onClick={rightIconFunc}>{righticon}</div>}
                 </div>
-               
+
             </>
     )
 }

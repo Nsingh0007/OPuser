@@ -49,7 +49,8 @@ export const formControl = {
 }
 export const formControlOtp = {
   display: 'block',
-  width: '50%',
+  width: '100%',
+  maxWidth:"50px",
   padding: '0.375rem 0.75rem',
   fontSize: ' 1rem',
   lineHeight: ' 2.4rem',
@@ -57,7 +58,8 @@ export const formControlOtp = {
   background: ThemeColors.inputbg,
   border: 'none',
   borderRadius: '5px',
-  textAlign: 'center'
+  textAlign: 'center',
+  border: "1px solid #E5ECF0",
 }
 export const formSelect = {
   display: 'block',

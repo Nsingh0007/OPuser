@@ -14,6 +14,7 @@ export const ThemeColors = {
   disable: "#8A9CB0",
   buttonbg: "#E5ECF0",
   inputbg: "#FAFAFA",
+  lightBlue: "#4FA4F4",
   selectedInput: "#F0F5FB",
   font: {
     cardheading: {
