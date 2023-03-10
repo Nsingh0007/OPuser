@@ -8,7 +8,9 @@ import { alphabetOnly, emailregex, mobileNumber, passwordRegex } from '../../../
 import CustomButton from '../../../customComponents/button/customButton';
 import CustomInput from '../../../customComponents/customTextInput';
 import { LargHeading, NormalTileHeading } from '../../../customComponents/DynamicText/Heading';
+import AuthStore from '../../../mobx/auth';
 import { ThemeColors } from '../../../theme/theme';
+import { RouteConstant } from '../../../utils/routes/constant';
 import "./signup.scss";
 
 export default function Signup({ setHeight, width }) {
@@ -19,8 +21,16 @@ export default function Signup({ setHeight, width }) {
     width <= 480 && setHeight(true)
   }, [setHeight, width])
 
-  const SignUp = (data) => {
-    navigate("/")
+  const SignUp = async (data) => {
+    AuthStore.setLoading(true);
+    let userToken = { user: true };
+    localStorage.setItem("key", JSON.stringify(userToken));
+    AuthStore.setUser({
+      token: true,
+      user: userToken.user,
+    });
+    AuthStore.setLoading(false);
+    navigate(RouteConstant.verification)
   }
   return (
     <>
@@ -35,8 +45,8 @@ export default function Signup({ setHeight, width }) {
                   SignUp(values)
                 }}
                 validationSchema={Yup.object().shape({
-                  fullName: Yup.string().email().required("Full Name is Required").matches(alphabetOnly, "Full name is not valid"),
-                  mobileNumber: Yup.string().email().required("Mobile Number is Required").matches(mobileNumber, "Number is not valid"),
+                  fullName: Yup.string().required("Full Name is Required").matches(alphabetOnly, "Full name is not valid"),
+                  mobileNumber: Yup.string().required("Mobile Number is Required").matches(mobileNumber, "Number is not valid"),
                   email: Yup.string().email().required("Email is Required").matches(emailregex, "Email is not valid"),
                   password: Yup.string().required("Password is required").matches(passwordRegex, "Password is not valid"),
                   // confirmPassword: Yup.string().when("password", {

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Outlet, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import Header from '../navigations/header';
 import LoginPage from '../Pages/auth/login';
 import ForgotPasswordPage from '../Pages/auth/password/forgot';
@@ -10,8 +10,7 @@ import UploadPage from '../Pages/auth/uploadPhoto';
 import SelectInstitute from '../Pages/PublicPages/selectInstitute';
 import "./baseLayout.css";
 
-export function BaseLayout({ height }) {
-
+export function BaseLayout() {
   return (
     <div className='height1 outerDivLogin'>
       <Header />
@@ -19,18 +18,16 @@ export function BaseLayout({ height }) {
     </div>
   )
 }
-const Layout = ({ auth, setAuth }) => {
+const Layout = () => {
 
-  const [height, setHeight] = useState(false);
-  const { innerWidth: width } = window;
   return (
     <Routes>
-      <Route element={<BaseLayout height={height} />}>
-        <Route index element={<LoginPage auth={auth} setAuth={setAuth} setHeight={setHeight} height={height} />} />
-        <Route path='login' element={<LoginPage auth={auth} setAuth={setAuth} setHeight={setHeight} height={height} />} />
-        <Route path='sign-up' element={<SignUpPage setHeight={setHeight} height={height} width={width} />} />
+      <Route element={<BaseLayout />}>
+        <Route index element={<Navigate to={"login"} />} />
+        <Route path='login' element={<LoginPage />} />
+        <Route path='sign-up' element={<SignUpPage />} />
         <Route path='forgot-password' element={<ForgotPasswordPage />} />
-        <Route path='otp' element={<OtpPage />} />
+        {/* <Route path='verification' element={<OtpPage />} /> */}
         <Route path='reset-password' element={<ResetPage />} />
         <Route path='upload-photo' element={<UploadPage />} />
         <Route path='institute' element={<SelectInstitute />} />

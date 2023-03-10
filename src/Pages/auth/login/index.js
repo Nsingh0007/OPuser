@@ -5,31 +5,23 @@ import * as Yup from "yup";
 import {
   EyeIcon,
   MailIcon,
-  PasswordIcon,
+  PasswordIcon
 } from "../../../assets/icon/inputIcon";
+import img from "../../../assets/images/layoutImg.png";
 import { emailregex, passwordRegex } from "../../../assets/regex";
 import CustomButton from "../../../customComponents/button/customButton";
 import CustomCard from "../../../customComponents/card/CustomCard";
 import CustomInput from "../../../customComponents/customTextInput";
 import UnderLineText from "../../../customComponents/under-line-text/underLineText";
 import { ThemeColors } from "../../../theme/theme";
-import img from "../../../assets/images/layoutImg.png";
-const LoginPage = ({ auth, setAuth, setHeight, height }) => {
-  const { innerWidth: width } = window;
+const LoginPage = () => {
   const navigate = useNavigate();
-  const pathname = useLocation();
-  const from = pathname.pathname ? pathname.pathname : "/";
-  console.log(from);
-  const signUp = () => {
-    console.log("innerwidth", width);
-    width <= 480 && setHeight(true);
-    navigate("sign-up");
-  };
+
   const forgotPass = () => {
-    navigate("forgot-password");
+    navigate("/auth/forgot-password");
   };
   const SignUp = () => {
-    navigate("sign-up");
+    navigate("/auth/sign-up");
   };
   return (
     <div className="outerflex">

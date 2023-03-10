@@ -108,7 +108,7 @@ export function NormalTileHeading(props) {
     const { text } = props
     const StyledText = styled.p`
     margin:0;
-    font-size:calc(7px + 1.9vmin);
+    font-size:calc(6px + 1.9vmin);
     font-weight:${ThemeColors.font.NormalTitleHeading.fontWeight};
     font-style:${ThemeColors.font.NormalTitleHeading.fontStyle};
     // line-height:${ThemeColors.font.NormalTitleHeading.lineHeight};    
