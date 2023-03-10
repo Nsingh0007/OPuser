@@ -2,39 +2,37 @@ import { Formik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from "yup";
-import { CrossEyeIcon, EyeIcon, GoogleIcon, Icon, MailIcon, PasswordIcon, Phone, UserIcon } from '../../../assets/icon/inputIcon';
+import { CrossEyeIcon, EyeIcon, GoogleIcon, MailIcon, PasswordIcon, Phone, UserIcon } from '../../../assets/icon/inputIcon';
+import img from '../../../assets/images/layoutImg.png';
 import { alphabetOnly, emailregex, mobileNumber, passwordRegex } from '../../../assets/regex';
 import CustomButton from '../../../customComponents/button/customButton';
 import CustomInput from '../../../customComponents/customTextInput';
 import { LargHeading, NormalTileHeading } from '../../../customComponents/DynamicText/Heading';
 import { ThemeColors } from '../../../theme/theme';
 import "./signup.scss";
-import img from '../../../assets/images/layoutImg.png';
 
-export default function Signup({ setHeight, height, width }) {
+export default function Signup({ setHeight, width }) {
   const navigate = useNavigate();
   const [toggleIcon, setToggleIcon] = useState(false)
+
   useEffect(() => {
     width <= 480 && setHeight(true)
   }, [setHeight, width])
 
-  const Login = () => {
-    console.log("height", height, setHeight)
-    setHeight(false)
+  const SignUp = (data) => {
     navigate("/")
   }
   return (
     <>
-      <div className="outerflex">
-        <div className="left-flex ">
-          <div className="container-flex">
-            <div className='card px-3 py-5' style={{ border: "1px solid #D9E3EE", borderRadius: "20px", }}>
+      <div className="Aouterflex">
+        <div className="Aleft-flex">
+          <div className="Acontainer-flex" style={{ padding: "7% 7% 0 18%" }}>
+            <div className='card px-3 py-3' style={{ border: "1px solid #D9E3EE", borderRadius: "20px", }}>
               <Formik
                 initialValues={{ fullName: "", mobileNumber: "", email: '', password: '', }}
                 onSubmit={async (values) => {
                   console.log('on submit called', values)
-                  await new Promise((resolve) => setTimeout(resolve, 500));
-                  alert(JSON.stringify(values, null, 2));
+                  SignUp(values)
                 }}
                 validationSchema={Yup.object().shape({
                   fullName: Yup.string().email().required("Full Name is Required").matches(alphabetOnly, "Full name is not valid"),
@@ -58,7 +56,7 @@ export default function Signup({ setHeight, height, width }) {
                   return (
                     <form onSubmit={handleSubmit} className="" >
 
-                      <div className="row m-0">
+                      <div className="row m-0 pt-3">
                         <LargHeading text='Hey, enter your details to get sign up to create your account' />
                         <NormalTileHeading text="When an unknown printer took a galley of type and scrambled it to make a type specimen book." />
                         <div className="col-12 mb-3 pb-1 mt-4 pt-1">
@@ -107,7 +105,7 @@ export default function Signup({ setHeight, height, width }) {
             </div>
           </div>
         </div>
-        <img src={img} alt="" className="right-flex" />
+        <img src={img} alt="" className="Aright-flex" />
       </div>
     </>
   )

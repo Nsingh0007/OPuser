@@ -33,8 +33,8 @@ export const ThemeColors = {
     TitleHeading: {
       fontSize: '16px',
       fontWeight: 500,
-      lineHeight: "16px",
-      color: "#3A3951",
+      lineHeight: "20px",
+      color: "#0B1C30",
       fontFamily: 'Medium'
     },
     NormalTitleHeading: {
@@ -83,11 +83,17 @@ export const ThemeColors = {
     },
 
     largHeading: {
-      fontFamily: 'Outfit',
+      fontFamily: 'Regular',
       fontStyle: "Regular",
       fontWeight: 400,
       fontSize: "32px",
       lineHeight: "40px",
+    },
+    xLargHeading: {
+      fontFamily: 'Medium',
+      fontWeight: 500,
+      fontSize: "36px",
+      lineHeight: "45px",
     },
   }
 };

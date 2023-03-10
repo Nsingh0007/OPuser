@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { ThemeColors } from '../../theme/theme';
 import "../../App.css"
-// import WindowSize from '../../component/hooks/windowSize';
+import WindowSize from '../../utils/hooks/windowSize'
 
 export function SmallHeading(props) {
     const { text, color } = props
@@ -46,20 +46,20 @@ color:${ThemeColors.black};
     )
 }
 
-// export function SubHeading(props) {
-// const { width } = WindowSize();
-//     const { text } = props
-//     const StyledText = styled.p`
-//     margin:0;
-//     font-size:${({ width1 }) => width1 <= 800 ? "16px" : ThemeColors.font.subHeading.fontSize};
-//     font-weight:${ThemeColors.font.subHeading.fontWeight};
-//     font-family: "Medium";
-//     color:${ThemeColors.black};
-//     `;
-//     return (
-//         <StyledText width1={width} >{text}</StyledText>
-//     )
-// }
+export function SubHeading(props) {
+    const { width } = WindowSize();
+    const { text } = props
+    const StyledText = styled.p`
+    margin:0;
+    font-size:${({ width1 }) => width1 <= 800 ? "16px" : ThemeColors.font.subHeading.fontSize};
+    font-weight:${ThemeColors.font.subHeading.fontWeight};
+    font-family: "Medium";
+    color:${ThemeColors.black};
+    `;
+    return (
+        <StyledText width1={width} >{text}</StyledText>
+    )
+}
 
 export function BoldHeading(props) {
     const { text } = props
@@ -79,7 +79,7 @@ export function TitleHeading(props) {
     const { text } = props
     const StyledText = styled.p`
     margin:0px 0px 0px 0px;
-    font-size:${ThemeColors.font.TitleHeading.fontSize};
+    font-size:calc(5px + 1.8vmin);
     font-weight:${ThemeColors.font.TitleHeading.fontWeight};
     color:${ThemeColors.font.TitleHeading.color};
     font-family:${ThemeColors.font.TitleHeading.fontFamily};
@@ -103,15 +103,15 @@ export function TileHeading(props) {
         <StyledText>{text}</StyledText>
     )
 }
+
 export function NormalTileHeading(props) {
     const { text } = props
     const StyledText = styled.p`
     margin:0;
-    font-size:${ThemeColors.font.NormalTitleHeading.fontSize};
+    font-size:calc(7px + 1.9vmin);
     font-weight:${ThemeColors.font.NormalTitleHeading.fontWeight};
     font-style:${ThemeColors.font.NormalTitleHeading.fontStyle};
-    line-height:${ThemeColors.font.NormalTitleHeading.lineHeight};
-    
+    // line-height:${ThemeColors.font.NormalTitleHeading.lineHeight};    
     `;
     return (
         <StyledText>{text}</StyledText>
@@ -135,12 +135,26 @@ export function LargHeading(props) {
     const { text } = props
     const StyledText = styled.p`
     margin:0;
-    font-size:${ThemeColors.font.largHeading.fontSize};
+    font-size:calc(10px + 3vmin);
     font-weight:${ThemeColors.font.largHeading.fontWeight};
     font-family: ${ThemeColors.font.largHeading.fontFamily}
     font-style: ${ThemeColors.font.largHeading.fontStyle}
     `;
     return (
         <StyledText>{text}</StyledText>
+    )
+}
+export function XLargHeading(props) {
+    const { width } = WindowSize();
+    const { text } = props
+    const StyledText = styled.p`
+    margin:0;
+    font-size:calc(12px + 3vmin);
+    font-weight:${ThemeColors.font.xLargHeading.fontWeight};
+    font-family: ${ThemeColors.font.xLargHeading.fontFamily}
+    `;
+    // ${({ width1 }) => width1 <= 800 ? "28px" : ThemeColors.font.xLargHeading.fontSize}
+    return (
+        <StyledText width1={width}>{text}</StyledText>
     )
 }

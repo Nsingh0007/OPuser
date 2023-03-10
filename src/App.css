@@ -189,6 +189,9 @@ ul.show {
   header {
     width: 117%;
   }
+  .Aleft-flex {
+    width: 115%;
+  }
 }
 
 .input-feedback {

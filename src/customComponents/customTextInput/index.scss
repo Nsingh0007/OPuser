@@ -13,19 +13,22 @@ input:-webkit-autofill:active {
 .did-floating-label-content {
     position: relative;
 }
+
 .input-container {
     // display: flex;
     // align-items: center;
     position: relative;
 }
+
 .position {
     position: absolute;
     z-index: 10;
     left: 12px;
     top: 12px;
 }
+
 .did-floating-label {
-    color: #1e4c82;
+    color: #4fa4f4;
     font-size: 12px;
     font-weight: normal;
     position: absolute;
@@ -38,6 +41,7 @@ input:-webkit-autofill:active {
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
 }
+
 .did-floating-input,
 .did-floating-select {
     font-size: 12px;
@@ -70,6 +74,7 @@ select.did-floating-select {
     -moz-appearance: none;
     appearance: none;
 }
+
 select.did-floating-select::-ms-expand {
     display: none;
 }
@@ -78,17 +83,17 @@ select.did-floating-select::-ms-expand {
 //     top: -8px;
 //     font-size: 12px;
 // }
+
 .did-floating-input:not(:placeholder-shown) ~ .did-floating-label {
     top: -8px;
     font-size: 12px;
+    color: #4fa4f4;
+    
 }
+
 .did-floating-input:not(:placeholder-shown) {
     outline: none;
     border: 1px solid #4fa4f4;
-    .did-floating-label {
-        outline: none;
-        border: 1px solid #4fa4f4;
-    }
 }
 .did-floating-input:placeholder-shown ~ .did-floating-label {
     display: none;
@@ -119,6 +124,7 @@ select.did-floating-select::-ms-expand {
         padding-left: 0;
     }
 }
+
 .input-group-append {
     display: flex;
     align-items: center;
@@ -138,6 +144,7 @@ select.did-floating-select::-ms-expand {
     border-radius: 4px 0 0 4px;
     border-right: none;
 }
+
 .did-floating-input::placeholder {
     color: #a9becc;
     text-align: start;
