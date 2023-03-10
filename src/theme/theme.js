@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 export const ThemeColors = {
-  primary: "",
+  primary: "#0B1C30",
   secondary: "#F5F5F5",
   third: "#CAAED6",
   light: "#E7E7E7",
@@ -17,7 +17,7 @@ export const ThemeColors = {
   selectedInput: "#F0F5FB",
   font: {
     cardheading: {
-      fontSize: '32px',
+      fontSize: 'calc(12.62px + 2vmin)',
       fontWeight: 500,
       lineHeight: "40px",
       color: "#0B1C30",
