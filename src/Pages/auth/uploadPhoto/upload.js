@@ -69,8 +69,7 @@ function Upload({ onDrop, maxFiles = 1 }) {
               Have a favorite selfie? Upload it now
             </p>
 
-            <div
-              style={{ margin: "10px" }}
+            <div style={{ margin: "10px" }}
               onClick={() => {
                 $input.current.click();
               }}

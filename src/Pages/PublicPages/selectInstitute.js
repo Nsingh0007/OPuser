@@ -1,29 +1,44 @@
-import React from 'react'
-import { EditIcon, UniversityIcon } from '../../assets/icon/inputIcon'
-import CustomButton from '../../customComponents/button/customButton'
-import CustomCard from '../../customComponents/card/CustomCard'
-import CustomInput from '../../customComponents/customTextInput'
-import Dropdown from '../../customComponents/dropdown/dropdown'
-import UnderLineText from '../../customComponents/under-line-text/underLineText'
-
-const onclick = () => {
-
-}
+import React from "react";
+import { InstituteIcon } from "../../assets/icon/inputIcon";
+import img from "../../assets/images/Group33631.png";
+import CustomButton from "../../customComponents/button/customButton";
+import CustomCard from "../../customComponents/card/CustomCard";
+import Dropdown from "../../customComponents/dropdown/dropdown";
+const onclick = () => {};
 const options = ["Class12", "Class11", "Class10"];
 
 const SelectInstitute = () => {
+  const divCenter = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "90vh",
+  };
   return (
     <section>
-      <UnderLineText text='Institute Selection' subText='When an unknown printer took a galley of type and scrambled it to make a type specimen book.' />
-      <CustomCard>
-        <form>
-          <Dropdown name="class" placeholder="Please Select" label="Select Institute" option={options} lefticon={<UniversityIcon />} />
-          <CustomInput name="Other" placeholder="Type Here" type="text" label="Other" lefticon={<EditIcon />} />
-          <CustomButton title="Continue" onClick={onclick} />
-        </form>
-      </CustomCard>
-    </section>
-  )
-}
+      <div className="outerflex">
+        <div className="left-flex">
+          <div className="container" style={divCenter}>
+            <CustomCard>
+              <form>
+                <Dropdown
+                  // name="class"
+                  placeholder="Select Institute"
+                  label="Institute"
+                  option={options}
+                  lefticon={<InstituteIcon />}
+                />
 
-export default SelectInstitute
+                <CustomButton title="Continue" onClick={onclick} />
+              </form>
+            </CustomCard>
+          </div>
+        </div>
+        <img src={img} alt="" className="right-flex" />
+      </div>
+    </section>
+  );
+};
+
+export default SelectInstitute;

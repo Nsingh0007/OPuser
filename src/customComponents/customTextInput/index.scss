@@ -75,22 +75,23 @@ select.did-floating-select {
     appearance: none;
 }
 
+
 select.did-floating-select::-ms-expand {
     display: none;
 }
 
-// .did-floating-input:not(::placeholder) ~ .did-floating-label {
-//     top: -8px;
-//     font-size: 12px;
-// }
-
+select.did-floating-select:not(:active) ~ .did-floating-label {
+    top: -8px;
+    font-size: 12px;
+    color: #4fa4f4;
+    display: none;
+}
 .did-floating-input:not(:placeholder-shown) ~ .did-floating-label {
     top: -8px;
     font-size: 12px;
     color: #4fa4f4;
     
 }
-
 .did-floating-input:not(:placeholder-shown) {
     outline: none;
     border: 1px solid #4fa4f4;
@@ -99,7 +100,12 @@ select.did-floating-select::-ms-expand {
     display: none;
     // appearance: none;
 }
+
 .did-floating-input:focus ~ .did-floating-label {
+    color: #4fa4f4;
+    display: block;
+}
+select.did-floating-select:focus ~ .did-floating-label {
     color: #4fa4f4;
     display: block;
 }

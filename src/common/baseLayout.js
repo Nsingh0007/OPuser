@@ -7,6 +7,7 @@ import OtpPage from '../Pages/auth/password/otp';
 import ResetPage from '../Pages/auth/password/reset';
 import SignUpPage from '../Pages/auth/signup';
 import UploadPage from '../Pages/auth/uploadPhoto';
+import SelectInstitute from '../Pages/PublicPages/selectInstitute';
 import "./baseLayout.css";
 
 export function BaseLayout({ height }) {
@@ -32,6 +33,7 @@ const Layout = ({ auth, setAuth }) => {
         <Route path='otp' element={<OtpPage />} />
         <Route path='reset-password' element={<ResetPage />} />
         <Route path='upload-photo' element={<UploadPage />} />
+        <Route path='institute' element={<SelectInstitute />} />
       </Route>
     </Routes>
   )

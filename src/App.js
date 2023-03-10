@@ -7,6 +7,7 @@ import PrivateLayout from './Pages/PublicPages/PrivateRoute';
 import SelectInstitute from './Pages/PublicPages/selectInstitute';
 
 function App() {
+  
   const [authe, setAuth] = useState(false)
   let auth = localStorage.getItem("auth")
   console.log(auth);
@@ -14,7 +15,8 @@ function App() {
     <Routes>
       <Route path='auth/*' element={<BaseLayout auth={authe} setAuth={setAuth} />} />
       <Route path='/' element={<PrivateLayout />} >
-        <Route index element={<SelectInstitute />} />
+        <></>
+        {/* <Route index element={<SelectInstitute />} /> */}
       </Route>
     </Routes>
   )
