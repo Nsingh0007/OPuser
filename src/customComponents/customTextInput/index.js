@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import "./index.scss";
 import { formControl, formControlOtp, StyledInput } from "./indexCss";
 
@@ -40,12 +39,7 @@ export default function CustomInput(props) {
                     </div>
                     {righticon && <div className="right-icon" onClick={rightIconFunc}>{righticon}</div>}
                 </div>
-                {/* <InputLabel>{label}</InputLabel>
-                <StyledInput className={"inputWithIcon"}>
-                    <div className="left-icon">{lefticon}</div>
-                    <input type={inputType ? 'text' : type} id={id} onChange={onChange} name={name} placeholder={placeholder} style={formControl} />
-                    <div className="right-icon" onClick={() => changeType()}>{!inputType ? righticon : <CrossEyeIcon />}</div>
-                </StyledInput> */}
+               
             </>
     )
 }

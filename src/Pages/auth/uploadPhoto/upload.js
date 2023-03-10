@@ -55,7 +55,7 @@ function Upload({ onDrop, maxFiles = 1 }) {
       <CustomCard>
         <div
           className="card"
-          style={{ textAlign: "center", width: "480px", maxHeight: "507px" }}
+          style={{ textAlign: "center", width: "100%", maxHeight: "507px",borderRadius:'20px'}}
         >
           <div className="card-body">
             <CardHeading text="Upload Profile Photo" />
@@ -63,7 +63,7 @@ function Upload({ onDrop, maxFiles = 1 }) {
               style={{
                 color: " #465567",
                 fontWeight: "400",
-                fontSize: "16px",
+                fontSize: 'calc(6.40px + 1vmin)',
               }}
             >
               Have a favorite selfie? Upload it now
@@ -96,10 +96,11 @@ function Upload({ onDrop, maxFiles = 1 }) {
                     <>
                       <div>
                         <img
+                          style={{borderRadius:' 60px'}}
                           key={file.name + "file"}
                           src={file.preview}
                           alt="your file"
-                          width={"60%"}
+                          width="190px"
                         />
                       </div>
                       <div
