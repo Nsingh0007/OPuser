@@ -9,7 +9,7 @@ import { LargHeading, NormalTileHeading, SmallHeading } from '../../../customCom
 import { ThemeColors } from '../../../theme/theme'
 let intervalHandle;
 let secondsRemaining;
-const user = JSON.parse(localStorage.getItem("key")).user;
+const user = JSON.parse(localStorage.getItem("key"))?.user;
 console.log("user", user)
 export default function Otp() {
   const [otpfield, setOtpField] = useState(['', '', '', ""])

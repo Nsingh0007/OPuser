@@ -11,13 +11,13 @@ const Nav = ({ setSidebarActive }) => {
 
   useEffect(() => {
     const loginData = localStorage.getItem("key");
-    getAdminProfile(auth.userid, loginData)
+    //getAdminProfile(auth.userid, loginData)
   }, [])
 
-  const getAdminProfile = async (id, loginData) => {
-    const getRes = await AuthServices.getAdminProfile({ id: id });
-    // AuthStore.updateUser({ token: JSON.parse(loginData)?.token, user: getRes?.data })
-  }
+  // const getAdminProfile = async (id, loginData) => {
+  //   // const getRes = await AuthServices.getAdminProfile({ id: id });
+  //   // AuthStore.updateUser({ token: JSON.parse(loginData)?.token, user: getRes?.data })
+  // }
 
   const signOut = () => {
     AuthServices.removeLogin();
@@ -68,7 +68,7 @@ const Nav = ({ setSidebarActive }) => {
               aria-expanded="true"
             >
               <img
-                src={auth.profileImage ? auth.profileImage : img}
+                src=""
                 alt="pic"
                 width="35"
                 height="35"

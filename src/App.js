@@ -31,11 +31,11 @@ function App() {
       {loading && <Loader />}
       {auth && (
         <Routes>  
-          <Route path='/' element={<PrivateLayout />} >
+          {/* <Route path='/' element={<PrivateLayout />} > */}
           <Route path="/" element={<Navigate to="/verification" />} />
           <Route path='verification' element={<Otp />} />
           <Route path='*' element={<Navigate to="/verification" />} />
-          </Route>
+          {/* </Route> */}
         </Routes>
       )}
       {!auth && (

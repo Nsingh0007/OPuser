@@ -23,7 +23,7 @@ const PrivateLayout = () => {
       <div style={outerdiv}>
         <div className="d-flex m-0 w-100 h-100" id="wrapper">
           <div className="">
-            <SideLayout />
+            {/* <SideLayout /> */}
           </div>
           <div className="w-100 left-main-height">
             <Navbar />
