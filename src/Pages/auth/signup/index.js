@@ -9,6 +9,7 @@ import CustomButton from '../../../customComponents/button/customButton';
 import CustomInput from '../../../customComponents/customTextInput';
 import { LargHeading, NormalTileHeading } from '../../../customComponents/DynamicText/Heading';
 import AuthStore from '../../../mobx/auth';
+import AuthServices from '../../../services/AuthService';
 import { ThemeColors } from '../../../theme/theme';
 import { RouteConstant } from '../../../utils/routes/constant';
 import "./signup.scss";
@@ -22,15 +23,16 @@ export default function Signup({ setHeight, width }) {
   }, [setHeight, width])
 
   const SignUp = async (data) => {
-    AuthStore.setLoading(true);
-    let userToken = { user: true };
-    localStorage.setItem("key", JSON.stringify(userToken));
-    AuthStore.setUser({
-      token: true,
-      user: userToken.user,
-    });
-    AuthStore.setLoading(false);
-    navigate(RouteConstant.verification)
+    const res = await AuthServices.signUp(data)
+    console.log("res", res)
+
+    // let userToken = { user: true };
+    // localStorage.setItem("key", JSON.stringify(userToken));
+    // AuthStore.setUser({
+    //   token: true,
+    //   user: userToken.user,
+    // });
+    // navigate(RouteConstant.verification)
   }
   return (
     <>
@@ -42,6 +44,8 @@ export default function Signup({ setHeight, width }) {
                 initialValues={{ fullName: "", mobileNumber: "", email: '', password: '', }}
                 onSubmit={async (values) => {
                   console.log('on submit called', values)
+                  // values.mobileNumber=JSON.stringify(values.mobileNumber)
+                  values.mobileNumber= `${values?.mobileNumber}`
                   SignUp(values)
                 }}
                 validationSchema={Yup.object().shape({
@@ -49,10 +53,6 @@ export default function Signup({ setHeight, width }) {
                   mobileNumber: Yup.string().required("Mobile Number is Required").matches(mobileNumber, "Number is not valid"),
                   email: Yup.string().email().required("Email is Required").matches(emailregex, "Email is not valid"),
                   password: Yup.string().required("Password is required").matches(passwordRegex, "Password is not valid"),
-                  // confirmPassword: Yup.string().when("password", {
-                  //   is: val => (val && val.length > 0 ? true : false),
-                  //   then: Yup.string().oneOf([Yup.ref("password")], "Both password need to be the same")
-                  // })
                 })}
               >
                 {(props) => {
@@ -60,33 +60,34 @@ export default function Signup({ setHeight, width }) {
                     values,
                     touched,
                     errors,
+                    isValid,
                     handleChange,
                     handleSubmit,
                   } = props;
                   return (
-                    <form onSubmit={handleSubmit} className="" >
-
+                    <form onSubmit={handleSubmit} >
                       <div className="row m-0 pt-3">
                         <LargHeading text='Hey, enter your details to get sign up to create your account' />
                         <NormalTileHeading text="When an unknown printer took a galley of type and scrambled it to make a type specimen book." />
                         <div className="col-12 mb-3 pb-1 mt-4 pt-1">
-                          <CustomInput name="fullName" type="text" value={values.fullName} onChange={handleChange} lefticon={<UserIcon />} righticon={""} label={"Full Name"} placeholder={"Enter Full Name"} />
-                          {errors.fullName && touched.fullName && (<div className="input-feedback">{errors.fullName}</div>)}
+                          <CustomInput name="fullName" type="text" value={values?.fullName} onChange={handleChange} lefticon={<UserIcon />} righticon={""} label={"Full Name"} placeholder={"Enter Full Name"} />
+                          {errors?.fullName && touched?.fullName && (<div className="input-feedback">{errors?.fullName}</div>)}
                         </div>
                         <div className="col-12 mb-3 pb-1">
-                          <CustomInput name="mobileNumber" id="mobileNumber" value={values.mobileNumber} onChange={handleChange} type="number" lefticon={<Phone />} label={"Mobile Number"} placeholder={"Enter Mobile Number"} />
-                          {errors.mobileNumber && touched.mobileNumber && (<div className="input-feedback">{errors.mobileNumber}</div>)}
+                          <CustomInput name="mobileNumber" id="mobileNumber" value={values?.mobileNumber} onChange={handleChange} type="number" lefticon={<Phone />} label={"Mobile Number"} placeholder={"Enter Mobile Number"} />
+                          {errors?.mobileNumber && touched?.mobileNumber && (<div className="input-feedback">{errors?.mobileNumber}</div>)}
                         </div>
                         <div className="col-12 mb-3 pb-1">
-                          <CustomInput name="email" id="email" value={values.email} onChange={handleChange} label="Email" type="text" lefticon={<MailIcon />} righticon={""} placeholder={"Enter Email Address"} />
-                          {errors.email && touched.email && (<div className="input-feedback">{errors.email}</div>)}
+                          <CustomInput name="email" id="email" value={values?.email} onChange={handleChange} label="Email" type="text" lefticon={<MailIcon />} righticon={""} placeholder={"Enter Email Address"} />
+                          {errors?.email && touched?.email && (<div className="input-feedback">{errors?.email}</div>)}
                         </div>
                         <div className="col-12 mb-3 pb-1">
-                          <CustomInput name="password" id="password" value={values.password} onChange={handleChange} label="Password" type={!toggleIcon ? "password" : "text"} lefticon={<PasswordIcon />} righticon={!toggleIcon ? <EyeIcon /> : <CrossEyeIcon />} placeholder={"Enter Your Password"} rightIconFunc={() => { setToggleIcon(!toggleIcon) }} />
-                          {errors.password && touched.password && (<div className="input-feedback">{errors.password}</div>)}
+                          <CustomInput name="password" id="password" value={values?.password} onChange={handleChange} label="Password" type={!toggleIcon ? "password" : "text"} lefticon={<PasswordIcon />} righticon={!toggleIcon ? <EyeIcon /> : <CrossEyeIcon />} placeholder={"Enter Your Password"} rightIconFunc={() => { setToggleIcon(!toggleIcon) }} />
+                          {errors?.password && touched?.password && (<div className="input-feedback">{errors?.password}</div>)}
                         </div>
                         <div className="col-12 mb-3 pb-1">
-                          <CustomButton title="Signup" type="submit" background={(values?.fullName && values?.email && values?.mobileNumber && values?.password) ? ThemeColors.bgDark : ThemeColors.disable} />
+                          <CustomButton title="Signup" type="submit" background={isValid ? ThemeColors.bgDark : ThemeColors.disable} />
+                          {/* <CustomButton title="Signup" type="submit" background={(values?.fullName && values?.email && values?.mobileNumber && values?.password) ? ThemeColors.bgDark : ThemeColors.disable} /> */}
                         </div>
                         <div className="col-12 mb-3 pb-1">
                           <CustomButton title="Continue with Google" icon={<GoogleIcon />} type="button" background={ThemeColors.inputbg}
@@ -107,8 +108,6 @@ export default function Signup({ setHeight, width }) {
                             titleStyle={{ width: "100%" }}
                           />
                         </div>
-                        {/* <FormFooter leftText='Already Have An Account' rightClick={Login} rightText='Login' /> */}
-
                       </div>
                     </form>
                   );

@@ -3,7 +3,7 @@ import "./index.scss";
 import { formControl, formControlOtp, StyledInput } from "./indexCss";
 
 export default function CustomInput(props) {
-    const { name, placeholder, type, lefticon, righticon, label, id, value, onChange, maxLength, tabIndex, onKeyUp, onClick, inputRef, isDisabled, min, max, width = "100%", background, height = "52px", rightIconFunc } = props;
+    const { name, placeholder, type, lefticon, righticon, label, id, value, onChange, maxLength, tabIndex, onKeyUp, onClick, inputRef, isDisabled, min, max, width = "100%", background, height = "48px", rightIconFunc } = props;
     const [inputType, setInputType] = useState(false);
     // const [eyeChange, setEyeChange] = useState(false);
     const ref = useRef();
