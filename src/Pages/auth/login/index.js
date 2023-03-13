@@ -1,122 +1,93 @@
 import { Formik } from "formik";
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import {
+  CrossEyeIcon,
   EyeIcon,
-  MailIcon,
-  PasswordIcon
+  GoogleIcon, PasswordIcon,
+  UserIcon
 } from "../../../assets/icon/inputIcon";
 import img from "../../../assets/images/layoutImg.png";
 import { emailregex, passwordRegex } from "../../../assets/regex";
 import CustomButton from "../../../customComponents/button/customButton";
-import CustomCard from "../../../customComponents/card/CustomCard";
+import Checkbox from "../../../customComponents/checkbox/Checkbox";
 import CustomInput from "../../../customComponents/customTextInput";
-import UnderLineText from "../../../customComponents/under-line-text/underLineText";
+import { LargHeading, NormalTileHeading, SmallHeading } from "../../../customComponents/DynamicText/Heading";
 import { ThemeColors } from "../../../theme/theme";
 const LoginPage = () => {
-  const navigate = useNavigate();
+  const [toggleIcon, setToggleIcon] = useState(false)
 
-  const forgotPass = () => {
-    navigate("/auth/forgot-password");
-  };
-  const SignUp = () => {
-    navigate("/auth/sign-up");
-  };
   return (
-    <div className="outerflex">
-      <div className="left-flex ">
-        <div className="container-flex">
-          <CustomCard>
+    <div className="Aouterflex">
+      <div className="Aleft-flex">
+        <div className="Acontainer-flex">
+          <div className='card px-3 py-3' style={{ border: "1px solid #D9E3EE", borderRadius: "20px", }}>
             <Formik
-              initialValues={{ email: "", password: "" }}
+              initialValues={{ email: '', password: '', }}
               onSubmit={async (values) => {
-                await new Promise((resolve) => setTimeout(resolve, 500));
-                alert(JSON.stringify(values, null, 2));
+                console.log('on submit called', values)
               }}
               validationSchema={Yup.object().shape({
-                email: Yup.string()
-                  .email()
-                  .required("Email is Required")
-                  .matches(emailregex, "Email is not valid"),
-                password: Yup.string()
-                  .required("Password is required")
-                  .matches(passwordRegex, "Password is not valid"),
+                email: Yup.string().email().required("Email is Required").matches(emailregex, "Email is not valid"),
+                password: Yup.string().required("Password is required").matches(passwordRegex, "Password is not valid"),
               })}
             >
               {(props) => {
-                const { touched, errors, handleChange, handleSubmit } = props;
+                const {
+                  values,
+                  touched,
+                  errors,
+                  handleChange,
+                  handleSubmit,
+                } = props;
                 return (
-                  <form
-                    onSubmit={handleSubmit}
-                    style={ThemeColors.cardcenter}
-                  >
-                    <UnderLineText
-                      text="Hey, enter your details to get sign up to create your account"
-                      subText="When an unknown printer took a galley of type and scrambled it to make a type specimen book."
-                    />
-                    <CustomInput
-                      name="email"
-                      id="email"
-                      onChange={handleChange}
-                      placeholder="Email Address"
-                      type="email"
-                      label="Email Address"
-                      lefticon={<MailIcon />}
-                      righticon={""}
-                    />
-                    {errors.email && touched.email && (
-                      <div className="input-feedback">{errors.email}</div>
-                    )}
-                    <CustomInput
-                      name="password"
-                      id="passowrd"
-                      onChange={handleChange}
-                      placeholder="Password"
-                      label="Password"
-                      lefticon={<PasswordIcon />}
-                      righticon={<EyeIcon />}
-                    />
-                    {errors.password && touched.password && (
-                      <div className="input-feedback">{errors.password}</div>
-                    )}
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <p>
-                        <input type="checkbox" value="RememberMe" />
-                        Remember me
-                      </p>
-                      <p
-                        style={{ color: ThemeColors.primary }}
-                        className="pointer"
-                        onClick={forgotPass}
-                      >
-                        Forgot Password?
-                      </p>
+                  <form onSubmit={handleSubmit} >
+                    <div className="row m-0 pt-3 ">
+                      <LargHeading text='Let’s sign you in!' />
+                      <NormalTileHeading text="Welcome back, you have been missed!" />
+                      <div className="col-12 mb-3 pb-1 mt-3">
+                        <CustomInput name="email" id="email" value={values.email} onChange={handleChange} label="Email" type="text" lefticon={<UserIcon />} righticon={""} placeholder={"Mobile/Email"} />
+                        {errors.email && touched.email && (<div className="input-feedback">{errors.email}</div>)}
+                      </div>
+                      <div className="col-12 mb-3 pb-1">
+                        <CustomInput name="password" id="password" value={values.password} onChange={handleChange} label="Password" type={!toggleIcon ? "password" : "text"} lefticon={<PasswordIcon />} righticon={!toggleIcon ? <EyeIcon /> : <CrossEyeIcon />} placeholder={"Enter Your Password"} rightIconFunc={() => { setToggleIcon(!toggleIcon) }} />
+                        {errors.password && touched.password && (<div className="input-feedback">{errors.password}</div>)}
+                      </div>
+                      <div className="col-12 mb-3 pb-1">
+                        <CustomButton title="Login" type="submit" background={(values?.fullName && values?.email && values?.mobileNumber && values?.password) ? ThemeColors.bgDark : ThemeColors.disable} />
+                      </div>
+                      <div className="col-12 mb-3 pb-1 d-flex justify-content-between">
+                        <div className="d-flex gap-2" ><Checkbox /><SmallHeading text="Remember password" /></div>
+                        <div className="text-center"><SmallHeading text="Forgot password?" /></div>
+                      </div>
+                      <div className="col-12 mb-3 pb-1 ">
+                        <CustomButton title="Continue with Google" icon={<GoogleIcon />} type="button" background={ThemeColors.inputbg}
+                          style={{
+                            color: "black",
+                            fontFamily: 'Medium',
+                            fontStyle: "Medium",
+                            fontWeight: 500,
+                            fontSize: "16px",
+                            lineHeight: "20px",
+                            textAlign: "center",
+                            display: "flex",
+                            alignItems: "center"
+                          }}
+                          iconStyle={{
+                            textAlign: "start",
+                          }}
+                          titleStyle={{ width: "100%" }}
+                        />
+                      </div>
                     </div>
-                    <CustomButton title="Login" type="submit" />
-
-                    <p
-                      style={{ color: ThemeColors.primary }}
-                      className="pointer"
-                      onClick={SignUp}
-                    >
-                      {" "}
-                      SignUp
-                    </p>
                   </form>
                 );
               }}
             </Formik>
-          </CustomCard>
+          </div>
         </div>
       </div>
-      <img src={img} alt="" className="right-flex" />
+      <img src={img} alt="" className="Aright-flex" />
     </div>
   );
 };

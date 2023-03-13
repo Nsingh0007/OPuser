@@ -24,6 +24,7 @@
     justify-content: center;
     align-items: center;
     /* margin-top: min(8%, 7vh); */
+    padding: 10% 10% 0px 10%;
 }
 
 .Aright-flex {
@@ -57,5 +58,14 @@
     }
     .responsiveImg {
         display: none;
+    }
+}
+@media screen and (max-width: 375px) {
+    .Aouterflex {
+        grid-template-columns: auto;
+    }
+    .Aleft-flex {
+        min-width: auto;
+        width: 100%;
     }
 }

@@ -1,5 +1,6 @@
 export const RouteConstant = {
   login: "/auth/login",
+  signup: "/auth/sign-up",
   logout: "/logout",
   forgetPassword: "/forget-password",
   notFound: "/notFound",

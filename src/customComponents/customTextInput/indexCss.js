@@ -46,6 +46,7 @@ export const formControl = {
   backgroundClip: "padding-box",
   // border: "none",
   borderRadius: "5px",
+  background:"#FAFAFA"
 }
 export const formControlOtp = {
   display: 'block',
