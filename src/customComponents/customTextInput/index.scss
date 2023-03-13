@@ -69,15 +69,13 @@ input:-webkit-autofill:active {
     }
 }
 
-select.did-floating-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
+// select.did-floating-select {
+
+// }
 
 
 select.did-floating-select::-ms-expand {
-    display: none;
+    color:  #4FA4F4;
 }
 
 select.did-floating-select:not(:active) ~ .did-floating-label {

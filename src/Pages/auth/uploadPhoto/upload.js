@@ -55,11 +55,12 @@ function Upload({ onDrop, maxFiles = 1 }) {
       <CustomCard>
         <div
           className="card"
-          style={{ textAlign: "center", width: "100%", maxHeight: "507px",borderRadius:'20px'}}
+          style={{ textAlign: "center", width: "100%", maxHeight: "507px",borderRadius:'20px',border: '1px solid #D9E3EE'}}
         >
           <div className="card-body">
             <CardHeading text="Upload Profile Photo" />
             <p
+             className="mt-2"
               style={{
                 color: " #465567",
                 fontWeight: "400",
@@ -143,7 +144,7 @@ function Upload({ onDrop, maxFiles = 1 }) {
                 />
               </div>
             </div>
-            <div>
+            <div className="mt-2">
               <CustomButton
                 title="Continue"
                 background={

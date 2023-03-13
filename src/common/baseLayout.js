@@ -7,6 +7,7 @@ import OtpPage from '../Pages/auth/password/otp';
 import ResetPage from '../Pages/auth/password/reset';
 import SignUpPage from '../Pages/auth/signup';
 import UploadPage from '../Pages/auth/uploadPhoto';
+import SelectCourse from '../Pages/PublicPages/selectCourse';
 import SelectInstitute from '../Pages/PublicPages/selectInstitute';
 import "./baseLayout.css";
 
@@ -31,6 +32,7 @@ const Layout = () => {
         <Route path='reset-password' element={<ResetPage />} />
         <Route path='upload-photo' element={<UploadPage />} />
         <Route path='institute' element={<SelectInstitute />} />
+        <Route path='course' element={<SelectCourse />} />
       </Route>
     </Routes>
   )
