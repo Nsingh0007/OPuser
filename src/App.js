@@ -32,7 +32,7 @@ function App() {
       {auth && (
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" />} />
-          <Route path="dashboard" element={<SelectInstitute />} />
+          {/* <Route path="dashboard" element={<SelectInstitute />} /> */}
           <Route path='verification' element={<Otp />} />
         </Routes>
       )}
