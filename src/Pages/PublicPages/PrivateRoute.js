@@ -1,34 +1,47 @@
-import React from 'react';
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import img from '../../assets/images/Group 2.png';
-import Header from '../../navigations/header';
-import { ThemeColors } from '../../theme/theme';
-
-
+import React, { useState } from "react";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { ThemeColors } from "../../theme/theme";
+import Navbar from "../layout/navbar/navbar";
+import SideLayout from "../layout/sidebar/sidebar";
 const PrivateLayout = () => {
-  const auth=false
-  const pathname= useLocation()
+  const outerdiv = {
+    width: "100vw",
+    height: "100vh",
+    overflow: "hidden",
+  };
+
+  const auth = false;
+  const pathname = useLocation();
+
+  const [initalpath] = useState(
+    // Commonservice.getLeftMenuOptions()[0].url
+    //   ? Commonservice.getLeftMenuOptions()[0].url
+    //   : Commonservice.getLeftMenuOptions()[0].submenus[0].url
+  );
   return (
     <>
-      <div className='outerDiv'>
-        <div className='innerDiv'>
-          <div className='outerflex'>
-            <div className='left-flex' style={{ backgroundColor: ThemeColors.light }}>
-              <Header />
-              <div className="container-flex">
-                {auth?<Outlet />:<Navigate to ='auth' state={{from:pathname}} replace/>}
-                </div>
-            </div>
-            <div className='right-flex' style={{ backgroundColor: ThemeColors.primary }}>
-              <img src={img} alt="" className='responsiveImg' />
+      <div style={outerdiv}>
+        <div className="d-flex m-0 w-100 h-100" id="wrapper">
+          <div className="">
+            <SideLayout />
+          </div>
+          <div className="w-100 left-main-height">
+            <Navbar />
+            <div
+              className="content-section"
+              style={{ backgroundColor: ThemeColors.bg }}
+            >
+              {auth ? <Outlet /> : <Navigate to={""} />}
             </div>
           </div>
         </div>
       </div>
-
+      {/* <Header />
+              <div className="container-flex">
+                {auth? <Outlet />:<Navigate to ='auth' state={{from:pathname}} replace/>}
+                </div> */}
     </>
-  )
-}
+  );
+};
 
-
-export default PrivateLayout
+export default PrivateLayout;

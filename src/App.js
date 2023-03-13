@@ -9,6 +9,7 @@ import BaseLayout from './common/baseLayout';
 import Loader from "./customComponents/loader/loader";
 import AuthStore from './mobx/auth';
 import Otp from './Pages/auth/password/otp';
+import PrivateLayout from "./Pages/PublicPages/PrivateRoute";
 import { RouteConstant } from './utils/routes/constant';
 
 function App() {
@@ -29,11 +30,12 @@ function App() {
       <ToastContainer />
       {loading && <Loader />}
       {auth && (
-        <Routes>
+        <Routes>  
+          <Route path='/' element={<PrivateLayout />} >
           <Route path="/" element={<Navigate to="/verification" />} />
-          {/* <Route path="dashboard" element={<SelectInstitute />} /> */}
           <Route path='verification' element={<Otp />} />
           <Route path='*' element={<Navigate to="/verification" />} />
+          </Route>
         </Routes>
       )}
       {!auth && (

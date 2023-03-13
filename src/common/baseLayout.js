@@ -3,6 +3,7 @@ import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import Header from '../navigations/header';
 import LoginPage from '../Pages/auth/login';
 import ForgotPasswordPage from '../Pages/auth/password/forgot';
+import OtpPage from '../Pages/auth/password/otp';
 import ResetPage from '../Pages/auth/password/reset';
 import SignUpPage from '../Pages/auth/signup';
 import UploadPage from '../Pages/auth/uploadPhoto';
