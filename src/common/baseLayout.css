@@ -61,7 +61,7 @@ input.error {
   margin-top: 0.25rem;
 }
 select {
-  min-width: 298.55px;
+ width: 100%;
 }
 
 @media screen and (min-width: 750px) and (max-width: 1000px) {

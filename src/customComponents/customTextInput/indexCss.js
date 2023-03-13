@@ -56,7 +56,6 @@ export const formControlOtp = {
   lineHeight: ' 2.4rem',
   backgroundClip: 'padding-box',
   background: ThemeColors.inputbg,
-  border: 'none',
   borderRadius: '5px',
   textAlign: 'center',
   border: "1px solid #E5ECF0",
