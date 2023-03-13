@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useLayoutEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { toJS } from "mobx";
+import { observer } from "mobx-react-lite";
 import { Phone } from '../../../assets/icon/inputIcon'
 import verifyImg from "../../../assets/images/verifyImg.png"
 import { numberOnly } from '../../../assets/regex'
@@ -8,20 +10,28 @@ import CustomButton from '../../../customComponents/button/customButton'
 import ModalPopup from '../../../customComponents/customModals/CustomModal'
 import CustomInput from '../../../customComponents/customTextInput'
 import { LargHeading, NormalTileHeading, SmallHeading } from '../../../customComponents/DynamicText/Heading'
+import AuthStore from '../../../mobx/auth'
 import { ThemeColors } from '../../../theme/theme'
 import GetOTP from '../../../utils/hooks/getOTP'
 import { RouteConstant } from '../../../utils/routes/constant'
 let intervalHandle;
 let secondsRemaining;
-const user = JSON.parse(localStorage.getItem("key")).user;
-export default function Otp() {
+// const user = toJS(AuthStore.user)?.user;
+const user = JSON.parse(localStorage.getItem("key"))?.user;
+console.log("user", user)
+function Otp() {
   const navigate = useNavigate()
   const [otpfield, setOtpField] = useState(['', '', '', ""])
   const [modal, setModal] = useState(false)
   const [mobileNumber, setMobileNumber] = useState(user?.mobileNumber)
   const [time, setTime] = useState({ value: 0, seconds: 0 });
   const [otp, setOtp] = useState();
+
+  useLayoutEffect(() => {
+    setMobileNumber(user?.mobileNumber)
+  }, [])
   useEffect(() => {
+
     // startCountDown();
     getOTPCode();
   }, [])
@@ -156,3 +166,4 @@ export default function Otp() {
     </div>
   )
 }
+export default observer(Otp);

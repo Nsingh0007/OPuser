@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { PostUploadIcon, PreUploadIcon } from "../../../assets/icon/inputIcon";
+import img from "../../../assets/images/Preprofile.svg";
 import CustomButton from "../../../customComponents/button/customButton";
 import CustomCard from "../../../customComponents/card/CustomCard";
 import CardHeading from "../../../customComponents/Header/cardheader";
-import img from "../../../assets/images/Preprofile.svg";
 import { ThemeColors } from "../../../theme/theme";
 function removeItems(arr, item) {
   for (var i = 0; i < item; i++) {
@@ -160,3 +160,4 @@ function Upload({ onDrop, maxFiles = 1 }) {
 }
 
 export { Upload };
+
