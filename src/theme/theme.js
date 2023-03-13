@@ -5,6 +5,7 @@ export const ThemeColors = {
   secondary: "#F5F5F5",
   third: "#CAAED6",
   light: "#E7E7E7",
+  lightBlack: "#465567",
   other: "#7E7383",
   deactive: "#B3A7B7",
   black: "#000000",
@@ -44,6 +45,7 @@ export const ThemeColors = {
       fontWeight: "400",
       fontSize: "16px",
       lineHeight: "20px",
+      color: '#465567',
     },
 
     tileHeading: {
@@ -86,7 +88,7 @@ export const ThemeColors = {
     largHeading: {
       fontFamily: 'Regular',
       fontStyle: "Regular",
-      fontWeight: 400,
+      fontWeight: 500,
       fontSize: "32px",
       lineHeight: "40px",
     },

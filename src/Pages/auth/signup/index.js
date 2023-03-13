@@ -36,7 +36,7 @@ export default function Signup({ setHeight, width }) {
     <>
       <div className="Aouterflex">
         <div className="Aleft-flex">
-          <div className="Acontainer-flex" style={{ padding: "7% 7% 0 18%" }}>
+          <div className="Acontainer-flex">
             <div className='card px-3 py-3' style={{ border: "1px solid #D9E3EE", borderRadius: "20px", }}>
               <Formik
                 initialValues={{ fullName: "", mobileNumber: "", email: '', password: '', }}
@@ -98,6 +98,8 @@ export default function Signup({ setHeight, width }) {
                               fontSize: "16px",
                               lineHeight: "20px",
                               textAlign: "center",
+                              display: "flex",
+                              alignItems: "center"
                             }}
                             iconStyle={{
                               textAlign: "start",

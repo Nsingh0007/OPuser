@@ -1,6 +1,6 @@
 import { toJS } from "mobx";
 import { observer } from "mobx-react-lite";
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect } from "react";
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 
@@ -9,7 +9,6 @@ import BaseLayout from './common/baseLayout';
 import Loader from "./customComponents/loader/loader";
 import AuthStore from './mobx/auth';
 import Otp from './Pages/auth/password/otp';
-import SelectInstitute from './Pages/PublicPages/selectInstitute';
 import { RouteConstant } from './utils/routes/constant';
 
 function App() {
