@@ -61,6 +61,7 @@ export const formControlOtp = {
   textAlign: 'center',
   border: "1px solid #E5ECF0",
 }
+
 export const formSelect = {
   display: 'block',
   width: '100%',

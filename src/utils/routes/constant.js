@@ -10,8 +10,11 @@ export const RouteConstant = {
 };
 
 export const ApiPath = {
-  login:"api/Student/studentlogin",
-  signup:"api/Student/studentsignup",
+  //#region AUTH
+  login: "api/Student/studentlogin",
+  signup: "api/Student/studentsignup",
+  getOTP: "api/Student/sendotp",
+  //#endregion
 };
 
 // export const allowedRoles = { admin: "Admin", staff: "Staff" };

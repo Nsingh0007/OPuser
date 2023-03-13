@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { useLayoutEffect } from "react";
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.css";
 import './App.css';
 import BaseLayout from './common/baseLayout';
 import Loader from "./customComponents/loader/loader";
@@ -16,15 +16,11 @@ function App() {
   const auth = toJS(AuthStore?.user?.user);
   const loading = toJS(AuthStore?.isLoading);
   const loginData = localStorage.getItem("key");
-  // const [toggle, setToggle] = useState(false)
 
   useLayoutEffect(() => {
-    // console.log("loginData", loginData)
     AuthStore.setUser(JSON.parse(loginData));
-    // setToggle(true)
   }, [loginData]);
 
-  // if (!toggle) return <div>Loading...</div>
   return (
     <div>
       <ToastContainer />

@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import {
-  formSelect,
-  InputLabel,
-  StyledInput,
-} from "../customTextInput/indexCss";
 import "../customTextInput/index.scss";
+import { formSelect, StyledInput } from "../customTextInput/indexCss";
 
 export default function Dropdown(props) {
   const { option, label, lefticon, placeholder } = props;
@@ -33,7 +29,7 @@ export default function Dropdown(props) {
           </select>
           {label && <label class="did-floating-label">{label}</label>}
         </div>
-       
+
       </StyledInput>
     </>
   );

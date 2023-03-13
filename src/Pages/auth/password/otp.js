@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { Phone } from '../../../assets/icon/inputIcon'
 import verifyImg from "../../../assets/images/verifyImg.png"
 import { numberOnly } from '../../../assets/regex'
@@ -7,24 +9,39 @@ import ModalPopup from '../../../customComponents/customModals/CustomModal'
 import CustomInput from '../../../customComponents/customTextInput'
 import { LargHeading, NormalTileHeading, SmallHeading } from '../../../customComponents/DynamicText/Heading'
 import { ThemeColors } from '../../../theme/theme'
+import GetOTP from '../../../utils/hooks/getOTP'
+import { RouteConstant } from '../../../utils/routes/constant'
 let intervalHandle;
 let secondsRemaining;
-const user = JSON.parse(localStorage.getItem("key"))?.user;
-console.log("user", user)
+const user = JSON.parse(localStorage.getItem("key")).user;
 export default function Otp() {
+  const navigate = useNavigate()
   const [otpfield, setOtpField] = useState(['', '', '', ""])
   const [modal, setModal] = useState(false)
   const [mobileNumber, setMobileNumber] = useState(user?.mobileNumber)
-  const [time, setTime] = useState({
-    value: 0,
-    seconds: 0
-  });
-
+  const [time, setTime] = useState({ value: 0, seconds: 0 });
+  const [otp, setOtp] = useState();
   useEffect(() => {
     // startCountDown();
+    getOTPCode();
   }, [])
 
+  const getOTPCode = async () => {
+    const res = await GetOTP(user?.mobileNumber, "Signup")
+    console.log("res", res)
+    if (res?.isSuccess) {
+      startCountDown();
+      toast.success(res?.messages)
+      setOtp(res?.data?.otp)
+    }
+  }
+
   const startCountDown = () => {
+    clearInterval(intervalHandle);
+    setTime({
+      seconds: 0,
+      value: 0
+    })
     const { value } = time;
     intervalHandle = setInterval(Timer, 1000);
     secondsRemaining = 120;
@@ -58,7 +75,14 @@ export default function Otp() {
       seconds: 0,
       value: 0
     })
-    startCountDown()
+    // startCountDown();
+    let OTP = otpfield[0] + otpfield[1] + otpfield[2] + otpfield[3];
+    if (JSON.parse(OTP) === otp) {
+      navigate(RouteConstant.dashboard)
+    }
+    else {
+      toast.error("OTP did not Matched..")
+    }
   }
 
   const inputfocus = (elmnt, ind) => {
@@ -84,7 +108,7 @@ export default function Otp() {
   return (
     <div className="Aouterflex">
       <div className="Aleft-flex">
-        <div className="Acontainer-flex" style={{ padding: "7% 7% 0 18%" }}>
+        <div className="Acontainer-flex" >
           <div className='card px-4 py-3 ' style={{ border: "1px solid #D9E3EE", borderRadius: "20px", marginTop: "10rem" }}>
             <LargHeading text='Verify Your Mobile Number' />
             <label style={{ color: ThemeColors.lightBlack }}>Enter the 4 digit verification code that has been sent to your mobile number
@@ -100,12 +124,13 @@ export default function Otp() {
                     )
                   }
                 </div>
-                <CustomButton title="Continue" type="button" style={{ color: ThemeColors.white }} func={(e) => verify(e)} background={(otpfield[0] && otpfield[1] && otpfield[2] && otpfield[3] ? ThemeColors?.disable : ThemeColors?.primary)} />
+                <CustomButton title="Continue" type="button" style={{ color: ThemeColors.white }} func={(e) => verify(e)} disable={(otpfield[0] && otpfield[1] && otpfield[2] && otpfield[3] ? false : true)} />
+                {/* <CustomButton title="Continue" type="button" style={{ color: ThemeColors.white }} func={(e) => verify(e)} background={(otpfield[0] && otpfield[1] && otpfield[2] && otpfield[3] ? ThemeColors?.disable : ThemeColors?.primary)} /> */}
                 <div className='text-center py-3'>
                   {time?.value !== 0 && time?.value !== 120 && < SmallHeading text={time.value + ":" + time.seconds} />}
                 </div>
                 {/* <p className='text-center pt-3' >00:00</p> */}
-                <p className='text-center' style={{ fontFamily: 'SemiBold', fontWeight: 400, fontSize: "14px" }} >Haven’t received your OTP yet ? <a className='pointer' style={{ color: ThemeColors.lightBlue }} onClick={(e) => { verify(e) }} >Resend</a></p>
+                <p className='text-center' style={{ fontFamily: 'SemiBold', fontWeight: 400, fontSize: "14px" }} >Haven’t received your OTP yet ? <a className='pointer' style={{ color: ThemeColors.lightBlue }} onClick={(e) => { getOTPCode(e) }} >Resend</a></p>
               </form>
             </div>
           </div>
@@ -117,7 +142,7 @@ export default function Otp() {
         <ModalPopup
           width={"100%"}
           isFooter={false}
-          CloseModalFunc={() => setModal(false)}          
+          CloseModalFunc={() => setModal(false)}
         >
           <div className="card border-0 mb-3">
             <LargHeading text="Change Mobile Number" />
