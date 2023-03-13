@@ -77,13 +77,21 @@ export function BoldHeading(props) {
 
 export function TitleHeading(props) {
     const { text } = props
+
     const StyledText = styled.p`
     margin:0px 0px 0px 0px;
     font-size:calc(5px + 1.8vmin);
     font-weight:${ThemeColors.font.TitleHeading.fontWeight};
     color:${ThemeColors.font.TitleHeading.color};
     font-family:${ThemeColors.font.TitleHeading.fontFamily};
+    
+    @media (max-width: 800px) {
+
+          display:none;
+        
+      }
     `;
+
     return (
         <StyledText>{text}</StyledText>
     )
