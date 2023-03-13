@@ -10,6 +10,8 @@ export const RouteConstant = {
 };
 
 export const ApiPath = {
+  login:"api/Student/studentlogin",
+  signup:"api/Student/studentsignup",
 };
 
 // export const allowedRoles = { admin: "Admin", staff: "Staff" };

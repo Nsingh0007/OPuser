@@ -13,9 +13,15 @@ import CustomButton from "../../../customComponents/button/customButton";
 import Checkbox from "../../../customComponents/checkbox/Checkbox";
 import CustomInput from "../../../customComponents/customTextInput";
 import { LargHeading, NormalTileHeading, SmallHeading } from "../../../customComponents/DynamicText/Heading";
+import AuthServices from "../../../services/AuthService";
 import { ThemeColors } from "../../../theme/theme";
 const LoginPage = () => {
   const [toggleIcon, setToggleIcon] = useState(false)
+  const login = async (data) => {
+    const res = await AuthServices.login(data)
+    console.log("res", res)
+
+  }
 
   return (
     <div className="Aouterflex">
@@ -26,6 +32,7 @@ const LoginPage = () => {
               initialValues={{ email: '', password: '', }}
               onSubmit={async (values) => {
                 console.log('on submit called', values)
+                login(values)
               }}
               validationSchema={Yup.object().shape({
                 email: Yup.string().email().required("Email is Required").matches(emailregex, "Email is not valid"),
@@ -54,7 +61,7 @@ const LoginPage = () => {
                         {errors.password && touched.password && (<div className="input-feedback">{errors.password}</div>)}
                       </div>
                       <div className="col-12 mb-3 pb-1">
-                        <CustomButton title="Login" type="submit" background={(values?.fullName && values?.email && values?.mobileNumber && values?.password) ? ThemeColors.bgDark : ThemeColors.disable} />
+                        <CustomButton title="Login" type="submit" background={(values?.email && values?.password) ? ThemeColors.bgDark : ThemeColors.disable} />
                       </div>
                       <div className="col-12 mb-3 pb-1 d-flex justify-content-between">
                         <div className="d-flex gap-2" ><Checkbox /><SmallHeading text="Remember password" /></div>
