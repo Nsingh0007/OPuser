@@ -31,9 +31,10 @@ function App() {
       {loading && <Loader />}
       {auth && (
         <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" />} />
-          <Route path="dashboard" element={<SelectInstitute />} />
+          <Route path="/" element={<Navigate to="/verification" />} />
+          {/* <Route path="dashboard" element={<SelectInstitute />} /> */}
           <Route path='verification' element={<Otp />} />
+          <Route path='*' element={<Navigate to="/verification" />} />
         </Routes>
       )}
       {!auth && (
