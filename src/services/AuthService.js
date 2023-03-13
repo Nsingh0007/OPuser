@@ -37,9 +37,9 @@ class Auth {
             if (data?.rememberme) {
                 sessionStorage.setItem("Credential", JSON.stringify(data));
             }
-            let decoded = jwt_decode(loginres?.data?.data?.token);
+            let decoded = jwt_decode(loginres?.data?.data);
             let userToken = {
-                token: loginres?.data?.data?.token,
+                token: loginres?.data?.data,
                 user: { ...decoded },
             }
             localStorage.setItem("key", JSON.stringify(userToken));

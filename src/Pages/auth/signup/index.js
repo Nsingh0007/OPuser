@@ -86,7 +86,7 @@ export default function Signup({ setHeight, width }) {
                           {errors?.password && touched?.password && (<div className="input-feedback">{errors?.password}</div>)}
                         </div>
                         <div className="col-12 mb-3 pb-1">
-                          <CustomButton title="Signup" type="submit" background={isValid ? ThemeColors.bgDark : ThemeColors.disable} />
+                          <CustomButton title="Signup" type="submit" background={isValid ? ThemeColors.bgDark : ThemeColors.disable} disable={!isValid}/>
                           {/* <CustomButton title="Signup" type="submit" background={(values?.fullName && values?.email && values?.mobileNumber && values?.password) ? ThemeColors.bgDark : ThemeColors.disable} /> */}
                         </div>
                         <div className="col-12 mb-3 pb-1">
