@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
-
+import verifyImg from "../../../assets/images/verifyImg.png"
 import { numberOnly } from '../../../assets/regex'
 import CustomButton from '../../../customComponents/button/customButton'
-import CustomCard from '../../../customComponents/card/CustomCard'
 import CustomInput from '../../../customComponents/customTextInput'
-import UnderLineText from '../../../customComponents/under-line-text/underLineText'
-import { ThemeColors } from '../../../theme/theme';
-import verifyImg from "../../../assets/images/verifyImg.png"
 import { LargHeading, NormalTileHeading } from '../../../customComponents/DynamicText/Heading'
+import { ThemeColors } from '../../../theme/theme'
 
 export default function Otp() {
   const [otpfield, setOtpField] = useState(['', '', '', ""])
@@ -66,7 +63,7 @@ export default function Otp() {
                     )
                   }
                 </div>
-                <CustomButton title="Continue" type="button" style={{ color: ThemeColors.white }} disable={(otpfield[0] && otpfield[1] && otpfield[2] && otpfield[3]) ? false : true} func={(e) => verify(e)} />
+                <CustomButton title="Continue" type="button" style={{ color: ThemeColors.white }} func={(e) => verify(e)}  background={(otpfield[0] && otpfield[1] && otpfield[2] && otpfield[3] ? ThemeColors?.disable : ThemeColors?.primary)}/>
                 <p className='text-center pt-3' >00:00</p>
                 <p className='text-center' style={{ fontFamily: 'SemiBold', fontWeight: 400, fontSize: "14px" }} >Haven’t received your OTP yet ? <a className='pointer' style={{ color: ThemeColors.lightBlue }} onClick={() => { console.log("chnage") }} >Resend</a></p>
               </form>
