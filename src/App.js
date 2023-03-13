@@ -18,7 +18,7 @@ function App() {
   // const [toggle, setToggle] = useState(false)
 
   useLayoutEffect(() => {
-    console.log("loginData", loginData)
+    // console.log("loginData", loginData)
     AuthStore.setUser(JSON.parse(loginData));
     // setToggle(true)
   }, [loginData]);

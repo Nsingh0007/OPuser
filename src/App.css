@@ -88,7 +88,7 @@ header {
 
 @media screen and (max-width: 480px) {
   header {
-    justify-content: center;
+    justify-content: space-around;
     padding: 0;
     padding-top: 1rem;
   }
@@ -187,7 +187,7 @@ ul.show {
 
 @media screen and (max-width: 375px) {
   header {
-    width: 117%;
+    width: 100%;
   }
   .Aleft-flex {
     width: 115%;
