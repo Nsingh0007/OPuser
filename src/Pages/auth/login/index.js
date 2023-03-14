@@ -1,5 +1,6 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import * as Yup from "yup";
 import {
   CrossEyeIcon,
@@ -20,6 +21,12 @@ const LoginPage = () => {
   const login = async (data) => {
     const res = await AuthServices.login(data)
     console.log("res", res)
+    if (res?.isSuccess) {
+      toast.success(res?.messages)
+    }
+    else {
+      toast.error(res?.messages)
+    }
 
   }
 

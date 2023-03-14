@@ -18,8 +18,8 @@ export default function Dropdown(props) {
       {/* <InputLabel>{label}</InputLabel> */}
       <StyledInput className={"inputWithIcon"}>
         {lefticon && <div className="position">{lefticon}</div>}
-        <div class="did-floating-label-content">
-          <select style={formSelect} class="did-floating-select">
+        <div className="did-floating-label-content">
+          <select style={formSelect} className="did-floating-select">
             <option value="" disabled selected hidden>{placeholder} </option>
             {option.map((option) => (
               <option onClick={onOptionClicked(option)} value={option}>
@@ -27,7 +27,7 @@ export default function Dropdown(props) {
               </option>
             ))}
           </select>
-          {label && <label class="did-floating-label">{label}</label>}
+          {label && <label className="did-floating-label">{label}</label>}
         </div>
 
       </StyledInput>

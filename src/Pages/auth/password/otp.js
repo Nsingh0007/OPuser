@@ -1,25 +1,22 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import { toJS } from "mobx";
 import { observer } from "mobx-react-lite";
-import { Phone } from '../../../assets/icon/inputIcon'
-import verifyImg from "../../../assets/images/verifyImg.png"
-import { numberOnly } from '../../../assets/regex'
-import CustomButton from '../../../customComponents/button/customButton'
-import ModalPopup from '../../../customComponents/customModals/CustomModal'
-import CustomInput from '../../../customComponents/customTextInput'
-import { LargHeading, NormalTileHeading, SmallHeading } from '../../../customComponents/DynamicText/Heading'
-import AuthStore from '../../../mobx/auth'
-import { ThemeColors } from '../../../theme/theme'
-import GetOTP from '../../../utils/hooks/getOTP'
-import { RouteConstant } from '../../../utils/routes/constant'
+import React, { useEffect, useLayoutEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { Phone } from '../../../assets/icon/inputIcon';
+import verifyImg from "../../../assets/images/verifyImg.png";
+import { numberOnly } from '../../../assets/regex';
+import CustomButton from '../../../customComponents/button/customButton';
+import ModalPopup from '../../../customComponents/customModals/CustomModal';
+import CustomInput from '../../../customComponents/customTextInput';
+import { LargHeading, NormalTileHeading, SmallHeading } from '../../../customComponents/DynamicText/Heading';
+import { ThemeColors } from '../../../theme/theme';
+import GetOTP from '../../../utils/hooks/getOTP';
+import { RouteConstant } from '../../../utils/routes/constant';
 let intervalHandle;
 let secondsRemaining;
-// const user = toJS(AuthStore.user)?.user;
-const user = JSON.parse(localStorage.getItem("key"))?.user;
-console.log("user", user)
+
 function Otp() {
+  const user = JSON.parse(localStorage.getItem("key"))?.user;
   const navigate = useNavigate()
   const [otpfield, setOtpField] = useState(['', '', '', ""])
   const [modal, setModal] = useState(false)
@@ -31,13 +28,12 @@ function Otp() {
     setMobileNumber(user?.mobileNumber)
   }, [])
   useEffect(() => {
-
     // startCountDown();
-    getOTPCode();
+    getOTPCode(user?.mobileNumber);
   }, [])
 
-  const getOTPCode = async () => {
-    const res = await GetOTP(user?.mobileNumber, "Signup")
+  const getOTPCode = async (mobileNumber) => {
+    const res = await GetOTP(mobileNumber, "Signup")
     console.log("res", res)
     if (res?.isSuccess) {
       startCountDown();
@@ -159,7 +155,7 @@ function Otp() {
           </div>
           <CustomInput value={mobileNumber} onChange={(e) => { setMobileNumber(e.target.value) }} type="number" lefticon={<Phone />} label={"Mobile Number"} placeholder={"Enter Mobile Number"} />
           <div className='py-4'>
-            <CustomButton title="Continue" func={() => setModal(false)} />
+            <CustomButton title="Continue" func={() => { getOTPCode(mobileNumber); setModal(false) }} />
           </div>
         </ModalPopup>
       }

@@ -27,15 +27,15 @@ export default function CustomInput(props) {
             : <>
                 <div className='input-container'>
                     {lefticon && <div className='position'>{lefticon}</div>}
-                    <div class="did-floating-label-content">
-                        <input class="did-floating-input" type={inputType ? 'text' : type} id={id} onChange={onChange} name={name} placeholder={placeholder}
+                    <div className="did-floating-label-content">
+                        <input className="did-floating-input" type={inputType ? 'text' : type} id={id} onChange={onChange} name={name} placeholder={placeholder}
                             disabled={isDisabled}
                             min={min}
                             max={max}
                             value={value}
                             style={{ ...formControl, ...inputStyle }}
                         />
-                        {label && <label class="did-floating-label">{label}</label>}
+                        {label && <label className="did-floating-label">{label}</label>}
                     </div>
                     {righticon && <div className="right-icon" onClick={rightIconFunc}>{righticon}</div>}
                 </div>

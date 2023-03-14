@@ -11,7 +11,7 @@ export const RouteConstant = {
 
 export const ApiPath = {
   //#region AUTH
-  login: "api/Student/studentlogin",
+  login: "api/Account/login",
   signup: "api/Student/studentsignup",
   getOTP: "api/Student/sendotp",
   //#endregion

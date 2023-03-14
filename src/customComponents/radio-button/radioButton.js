@@ -4,7 +4,7 @@ export default function RadioButton({ text }) {
     return (
         <p> <input
             type="checkbox"
-            class="rounded-checkbox"
+            className="rounded-checkbox"
             id="checkbox"
         /> <label for="checkbox">{text}</label></p>
     )
