@@ -1,6 +1,9 @@
+import { observer } from "mobx-react-lite";
 import AuthStore from "../../mobx/auth";
-const CheckAuth=()=>{
-   if(AuthStore?.user?.token  &&  AuthStore?.user?.user?.isVerified  &&  AuthStore?.user?.user?.institute  && AuthStore?.user?.user?.course ){
+function CheckAuth(){
+   if(AuthStore?.user?.token  &&  AuthStore?.user?.user?.isVerified  &&  AuthStore?.user?.user?.institute  && AuthStore?.user?.user?.course )
+   //if(AuthStore?.user?.token)
+   {
     return true
    }
 }
