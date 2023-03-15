@@ -11,6 +11,7 @@ import AuthStore from "./mobx/auth";
 import Header from "./navigations/header";
 import Otp from "./Pages/auth/password/otp";
 import UploadPage from "./Pages/auth/uploadPhoto";
+import PrivateLayout from "./Pages/PublicPages/PrivateRoute";
 import SelectCourse from "./Pages/PublicPages/selectCourse";
 import SelectInstitute from "./Pages/PublicPages/selectInstitute";
 
@@ -37,12 +38,12 @@ function App() {
       <Header />
       {auth &&
         (isVerifiedUser ? (
-          <></>
+          <Routes>
+             <Route path="/" element={<PrivateLayout/>} />
+            <Route index element={<PrivateLayout />} />
+          </Routes>
         ) : (
-          // <Routes>
-          //    <Route path="/" element={<PrivateLayout />} />
-          //   <Route index element={<PrivateLayout />} />
-          // </Routes>
+        
           <Routes>
             <Route path="/" element={<Navigate to="/verification" />} />
             <Route path="verification" element={<Otp />} />
