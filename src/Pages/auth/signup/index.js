@@ -40,7 +40,7 @@ export default function Signup({ setHeight, width }) {
 
   const SignUp = async (data) => {
     const res = await AuthServices.signUp(data);
-    //console.log("res", res)
+    console.log("res", res)
     if (res) {
       navigate(RouteConstant.verification)
     }
