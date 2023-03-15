@@ -1,17 +1,16 @@
 import { useNavigate } from "react-router-dom";
+import { BellIcon } from "../assets/icon/inputIcon";
+import logo from "../assets/images/logo.png";
 import CustomButton from "../customComponents/button/customButton";
 import { SmallHeading, TitleHeading, XLargHeading } from "../customComponents/DynamicText/Heading";
-import AuthStore from "../mobx/auth";
 import "../navigations/header.css";
 import { ThemeColors } from "../theme/theme";
 import CheckAuth from "../utils/hooks/checkAuth";
 import { RouteConstant } from "../utils/routes/constant";
-import logo from "../assets/images/logo.png"
-import { BellIcon } from "../assets/icon/inputIcon";
 export default function Header() {
     const path = window.location.href.split('/')
     const myStyle = { fontStyle: "normal", fontWeight: 600, fontSize: "16px", lineHeight: "20px", color: ThemeColors.white }
-    const user = AuthStore?.user?.user
+    // const user = AuthStore?.user?.user
     const navigate = useNavigate();
     const isVerified = CheckAuth()
     return (

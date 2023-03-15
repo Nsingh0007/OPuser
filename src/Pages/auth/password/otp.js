@@ -25,7 +25,7 @@ function Otp() {
   const [mobileNumber, setMobileNumber] = useState(user?.mobileNumber)
   const [time, setTime] = useState({ value: 0, seconds: 0 });
   const [otp, setOtp] = useState();
-
+ 
   useLayoutEffect(() => {
     setMobileNumber(user?.mobileNumber)
   }, [])
@@ -39,8 +39,8 @@ function Otp() {
     if (res?.isSuccess) {
       startCountDown();
       toast.success(res?.messages)
-      console.log("otp",atob(res?.data?.otp))
       setOtp(atob(res?.data?.otp))
+      console.log("otp",atob(res?.data?.otp))
     }
   }
 
@@ -85,7 +85,18 @@ function Otp() {
     })
     let OTP = otpfield[0] + otpfield[1] + otpfield[2] + otpfield[3];
     if (OTP === otp) {
-      const updateProfile = await AuthServices?.updateProfile();
+   let payload ={
+    id: user?.userId,
+    email: user?.email,
+    isVerified:true,
+    mobileNumber: mobileNumber,
+    fullName: user?.name,
+    profileImage: "",
+    instituteId: "00000000-0000-0000-0000-000000000000",
+    subcourseId: "00000000-0000-0000-0000-000000000000"
+   }
+
+      const updateProfile = await AuthServices?.updateProfile(payload);
       if(updateProfile){
        navigate(RouteConstant.institute)
       }

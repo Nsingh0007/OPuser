@@ -10,22 +10,21 @@ import {
   MailIcon,
   PasswordIcon,
   Phone,
-  UserIcon,
+  UserIcon
 } from "../../../assets/icon/inputIcon";
 import img from "../../../assets/images/layoutImg.png";
 import {
   alphabetOnly,
   emailregex,
   mobileNumber,
-  passwordRegex,
+  passwordRegex
 } from "../../../assets/regex";
 import CustomButton from "../../../customComponents/button/customButton";
 import CustomInput from "../../../customComponents/customTextInput";
 import {
   LargHeading,
-  NormalTileHeading,
+  NormalTileHeading
 } from "../../../customComponents/DynamicText/Heading";
-import AuthStore from "../../../mobx/auth";
 import AuthServices from "../../../services/AuthService";
 import { ThemeColors } from "../../../theme/theme";
 import { RouteConstant } from "../../../utils/routes/constant";
@@ -41,6 +40,7 @@ export default function Signup({ setHeight, width }) {
 
   const SignUp = async (data) => {
     const res = await AuthServices.signUp(data)
+     console.log("res", res)
     if (res?.isSuccess) {
       navigate(RouteConstant.verification)
       toast.success(res?.messages)
