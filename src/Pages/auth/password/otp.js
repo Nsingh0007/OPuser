@@ -40,7 +40,8 @@ function Otp() {
     if (res?.isSuccess) {
       startCountDown();
       toast.success(res?.messages)
-      setOtp(res?.data?.otp)
+      console.log("atob",atob(res?.data?.otp))
+      setOtp(atob(res?.data?.otp))
     }
   }
 
@@ -85,7 +86,8 @@ function Otp() {
     })
     // startCountDown();
     let OTP = otpfield[0] + otpfield[1] + otpfield[2] + otpfield[3];
-    if (JSON.parse(OTP) === otp) {
+    console.log("OTP",OTP)
+    if (OTP === otp) {
       const updateProfile = await AuthServices?.updateProfile();
       if(updateProfile){
        navigate(RouteConstant.institute)
@@ -142,7 +144,7 @@ function Otp() {
                   {time?.value !== 0 && time?.value !== 120 && < SmallHeading text={time.value + ":" + time.seconds} />}
                 </div>
                 {/* <p className='text-center pt-3' >00:00</p> */}
-                <p className='text-center' style={{ fontFamily: 'SemiBold', fontWeight: 400, fontSize: "14px" }} >Haven’t received your OTP yet ? <a className='pointer' style={{ color: ThemeColors.lightBlue }} onClick={(e) => { getOTPCode(e) }} >Resend</a></p>
+                <p className='text-center' style={{ fontFamily: 'SemiBold', fontWeight: 400, fontSize: "14px" }} >Haven’t received your OTP yet ? <a className='pointer' style={{ color: ThemeColors.lightBlue }} onClick={() => { getOTPCode(mobileNumber) }} >Resend</a></p>
               </form>
             </div>
           </div>
