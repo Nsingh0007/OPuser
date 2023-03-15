@@ -6,9 +6,9 @@ export const RouteConstant = {
   notFound: "/notFound",
   unAuthorized: "/unauthorized",
   verification: "/verification",
-  verification: "/upload-photo",
-  verification: "/institute",
-  verification: "/course",
+  uploadphoto: "/upload-photo",
+  institute: "/institute",
+  course: "/course",
   dashboard: "/dashboard",
 };
 
@@ -17,6 +17,7 @@ export const ApiPath = {
   login: "api/Account/login",
   signup: "api/Student/studentsignup",
   getOTP: "api/Student/sendotp",
+  editUser:"api/Student/editstudent"
   //#endregion
 };
 

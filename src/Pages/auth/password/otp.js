@@ -13,6 +13,7 @@ import { ThemeColors } from '../../../theme/theme';
 import GetOTP from '../../../utils/hooks/getOTP';
 import { RouteConstant } from '../../../utils/routes/constant';
 import jwt_decode from "jwt-decode";
+import AuthServices from "../../../services/AuthService";
 let intervalHandle;
 let secondsRemaining;
 
@@ -75,7 +76,7 @@ function Otp() {
     setOtpField(otpfieldcopy)
   }
 
-  const verify = (e) => {
+  const verify = async (e) => {
     e.preventDefault();
     clearInterval(intervalHandle);
     setTime({
@@ -85,7 +86,11 @@ function Otp() {
     // startCountDown();
     let OTP = otpfield[0] + otpfield[1] + otpfield[2] + otpfield[3];
     if (JSON.parse(OTP) === otp) {
-      navigate(RouteConstant.dashboard)
+      const updateProfile = await AuthServices?.updateProfile();
+      if(updateProfile){
+       navigate(RouteConstant.institute)
+      }
+    
     }
     else {
       toast.error("OTP did not Matched..")
