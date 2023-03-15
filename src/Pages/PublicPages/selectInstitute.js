@@ -8,6 +8,7 @@ import CardHeading from "../../customComponents/Header/cardheader";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { ThemeColors } from "../../theme/theme";
+
 const onclick = () => {};
 const options = ["Class12", "Class11", "Class10"];
 
@@ -60,6 +61,16 @@ const SelectInstitute = () => {
                             name="Institute"
                             placeholder="Select Institute"
                             label="Institute"
+                            option={options}
+                            handlefunc={() => { }}
+                            setFieldValue={setFieldValue}
+                            selectedEntity={values?.Institute}
+                            lefticon={<InstituteIcon />}
+                          />
+                          <Dropdown
+                            name="Institutecode"
+                            placeholder="Institute Code"
+                            label="Institute Code"
                             option={options}
                             handlefunc={() => { }}
                             setFieldValue={setFieldValue}

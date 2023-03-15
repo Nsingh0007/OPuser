@@ -5,7 +5,7 @@
   -ms-flex-direction: row;
   flex-direction: row;
   width: 480px;
-  height: 480px;
+  /* height: 480px; */
   word-wrap: break-word;
   background-clip: border-box;
   border-radius: 20px;

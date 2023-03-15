@@ -9,7 +9,9 @@ import BaseLayout from "./common/baseLayout";
 import Loader from "./customComponents/loader/loader";
 import AuthStore from "./mobx/auth";
 import Otp from "./Pages/auth/password/otp";
-import PrivateLayout from "./Pages/PublicPages/PrivateRoute";
+import UploadPage from "./Pages/auth/uploadPhoto";
+import SelectCourse from "./Pages/PublicPages/selectCourse";
+import SelectInstitute from "./Pages/PublicPages/selectInstitute";
 
 import CheckAuth from "./utils/hooks/checkAuth";
 import { RouteConstant } from "./utils/routes/constant";
@@ -22,7 +24,7 @@ function App() {
 
   useLayoutEffect(() => {
     // console.log("----auth", toJS(AuthStore?.user?.token));
-     AuthStore.setUser(JSON.parse(loginData));
+    AuthStore.setUser(JSON.parse(loginData));
   }, [loginData]);
   console.log("isVerifiedUser", isVerifiedUser);
   console.log("auth----", auth);
@@ -34,25 +36,26 @@ function App() {
       {auth &&
         (isVerifiedUser ? (
           <></>
+        ) : (
           // <Routes>
           //    <Route path="/" element={<PrivateLayout />} />
           //   <Route index element={<PrivateLayout />} />
           // </Routes>
-        ) : (
           <Routes>
             <Route path="/" element={<Navigate to="/verification" />} />
             <Route path="verification" element={<Otp />} />
+            <Route path="upload-photo" element={<UploadPage />} />
+            <Route path="institute" element={<SelectInstitute />} />
+            <Route path="course" element={<SelectCourse/>} />
             <Route path="*" element={<Navigate to="/verification" />} />
           </Routes>
-        ))
-        }
+        ))}
       {!auth && (
         <Routes>
           <Route path="auth/*" element={<BaseLayout />} />
           <Route index element={<Navigate to={RouteConstant.login} />} />
         </Routes>
       )}
-    
     </div>
   );
 }

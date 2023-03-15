@@ -21,8 +21,6 @@
   flex: 1 1 45%;
   height: 85%;
   min-width: 335px;
-  /* padding-inline: min(13%, 7vw); */
-  /* height: max-content; */
 }
 .container-flex {
   display: flex;
@@ -33,9 +31,9 @@
 
 .right-flex {
   flex: 1 1 55%;
-  height: 85%;
+  height: 100vh;
   width: 100%;
-  min-width: 335px;
+  min-width: 360px;
 }
 .innerDiv {
   width: 100%;
@@ -69,7 +67,12 @@ select {
     padding-inline: min(13%, 3vw);
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (min-width: 850px) and (max-width: 1140px) {
+  .right-flex{
+      height: 100%;
+  }
+}
+@media screen and (max-width: 850px) {
   .outerflex {
     grid-template-columns: 1fr;
   }

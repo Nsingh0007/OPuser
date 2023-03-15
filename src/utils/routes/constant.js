@@ -6,6 +6,9 @@ export const RouteConstant = {
   notFound: "/notFound",
   unAuthorized: "/unauthorized",
   verification: "/verification",
+  verification: "/upload-photo",
+  verification: "/institute",
+  verification: "/course",
   dashboard: "/dashboard",
 };
 
