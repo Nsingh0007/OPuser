@@ -8,6 +8,7 @@ import "./App.css";
 import BaseLayout from "./common/baseLayout";
 import Loader from "./customComponents/loader/loader";
 import AuthStore from "./mobx/auth";
+import Header from "./navigations/header";
 import Otp from "./Pages/auth/password/otp";
 import UploadPage from "./Pages/auth/uploadPhoto";
 import SelectCourse from "./Pages/PublicPages/selectCourse";
@@ -26,13 +27,14 @@ function App() {
     // console.log("----auth", toJS(AuthStore?.user?.token));
     AuthStore.setUser(JSON.parse(loginData));
   }, [loginData]);
-  console.log("isVerifiedUser", isVerifiedUser);
-  console.log("auth----", auth);
+  // console.log("isVerifiedUser", isVerifiedUser);
+  // console.log("auth----", auth);
 
   return (
     <div>
       <ToastContainer />
       {loading && <Loader />}
+      <Header />
       {auth &&
         (isVerifiedUser ? (
           <></>

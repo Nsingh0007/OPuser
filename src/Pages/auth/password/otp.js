@@ -12,6 +12,7 @@ import { LargHeading, NormalTileHeading, SmallHeading } from '../../../customCom
 import { ThemeColors } from '../../../theme/theme';
 import GetOTP from '../../../utils/hooks/getOTP';
 import { RouteConstant } from '../../../utils/routes/constant';
+import jwt_decode from "jwt-decode";
 let intervalHandle;
 let secondsRemaining;
 
@@ -29,12 +30,12 @@ function Otp() {
   }, [])
   useEffect(() => {
     // startCountDown();
-    getOTPCode(user?.mobileNumber);
+    // getOTPCode(user?.mobileNumber);
   }, [])
 
   const getOTPCode = async (mobileNumber) => {
     const res = await GetOTP(mobileNumber, "Signup")
-    console.log("res", res)
+    // console.log("res", res)
     if (res?.isSuccess) {
       startCountDown();
       toast.success(res?.messages)
