@@ -41,7 +41,6 @@ export default function Signup({ setHeight, width }) {
 
   const SignUp = async (data) => {
     const res = await AuthServices.signUp(data)
-    // console.log("res", res)
     if (res?.isSuccess) {
       navigate(RouteConstant.verification)
       toast.success(res?.messages)
@@ -49,13 +48,6 @@ export default function Signup({ setHeight, width }) {
     else {
       toast.error(res?.messages)
     }
-
-    // let userToken = { user: true };
-    // localStorage.setItem("key", JSON.stringify(userToken));
-    // AuthStore.setUser({
-    //   token: true,
-    //   user: userToken.user,
-    // });
   }
   return (
     <>

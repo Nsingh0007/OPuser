@@ -30,7 +30,6 @@ function Otp() {
     setMobileNumber(user?.mobileNumber)
   }, [])
   useEffect(() => {
-    // startCountDown();
     getOTPCode(user?.mobileNumber);
   }, [])
 
@@ -40,7 +39,7 @@ function Otp() {
     if (res?.isSuccess) {
       startCountDown();
       toast.success(res?.messages)
-      console.log("atob",atob(res?.data?.otp))
+      console.log("otp",atob(res?.data?.otp))
       setOtp(atob(res?.data?.otp))
     }
   }
@@ -84,15 +83,12 @@ function Otp() {
       seconds: 0,
       value: 0
     })
-    // startCountDown();
     let OTP = otpfield[0] + otpfield[1] + otpfield[2] + otpfield[3];
-    console.log("OTP",OTP)
     if (OTP === otp) {
       const updateProfile = await AuthServices?.updateProfile();
       if(updateProfile){
        navigate(RouteConstant.institute)
       }
-    
     }
     else {
       toast.error("OTP did not Matched..")

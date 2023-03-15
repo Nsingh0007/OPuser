@@ -3,7 +3,8 @@
  export const alphabetOnly = /^[a-zA-Z ]*$/;
  export const singleSpace = /^\s+|\s+$|(\s)\s+/;
  export const emailregex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
- export const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+ export const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,16})/;
+//  export const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
  export const numberOnly = /^[0-9\b]+$/;
  export const numberdecimalOnly = /^\d*\.?\d*$/;
  export const mobileNumber = /^[0-9]{10}$/;

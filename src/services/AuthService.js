@@ -54,7 +54,7 @@ class Auth {
   updateProfile = async (payload) => {
     AuthStore.setLoading(true);
     const userUpdateres = await axiosInstance.post(`${ApiPath?.editUser}`, payload);
-    console.log("sign up data", userUpdateres);
+    console.log("update Profile data", userUpdateres);
     if (userUpdateres?.data.isSuccess && userUpdateres?.data.responseCode === 200) {
       AuthStore.setLoading(false);
       let decoded = jwt_decode(userUpdateres?.data?.data);
