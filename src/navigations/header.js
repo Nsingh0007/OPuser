@@ -34,62 +34,17 @@ export default function Header() {
                     <>
                         <BellIcon />
                         <SmallHeading text="Nitesh Singh" />
-                        <div className="dropdown ">
-                            <div
-                                className="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none  show"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="true"
-                            >
-                                <img
-                                    // src={auth.profileImage ? auth.profileImage : img}
-                                    alt="pic"
-                                    width="35"
-                                    height="35"
-                                    className="rounded-circle"
-                                />
-                                <div
-                                    style={{ minWidth: "max-content" }}
-                                    className="d-flex flex-column ms-2 justify-content-start text-start"
-                                >
-                                    {/* <span
-                                        style={{ width: "50px", paddingInline: "2px " }}
-                                        className="badge text-bg-primary  fs-7"
-                                    >
-                                        {auth?.role}
-                                    </span> */}
-                                    <div style={{ gap: "10px" }} className="d-flex w-100">
-                                        {/* <span>{auth?.name}</span> */}
-                                        {/* <span>Anjali Dubey</span> */}
-                                        <div>
-                                            {/* <DownArrowIcon /> */}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul
-                                className="dropdown-menu text-small shadow "
-                                data-popper-placement="top-start"
-                            >
-                                <li onClick={() => navigate('/settings')}>
-                                    <div className="dropdown-item" >
-                                        Profile
-                                    </div>
-                                </li>
-                                <li>
-                                    <hr className="dropdown-divider" />
-                                </li>
-                                <li>
-                                    <div
-                                        className="dropdown-item"
-                                        onClick={() => {
-                                            // signOut();
-                                        }}
-                                    >
-                                        Sign out
-                                    </div>
-                                </li>
+                        <div className="btn-group">
+                            <button className="btn btn-primary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                Default dropdown
+                            </button>
+                            <ul className="dropdown-menu" aria-labelledby="defaultDropdown">
+                                <li><a className="dropdown-item" href="#">Menu item</a></li>
+                                <li><a className="dropdown-item" href="#">Menu item</a></li>
+                                <li><a className="dropdown-item" href="#">Menu item</a></li>
                             </ul>
                         </div>
+
                     </>
                 }
             </div>
