@@ -49,7 +49,7 @@ function App() {
       {!auth && (
         <Routes>
           <Route path="auth/*" element={<BaseLayout />} />
-          {/* <Route index element={<Navigate to={RouteConstant.login} />} /> */}
+          <Route index element={<Navigate to={RouteConstant.login} />} />
         </Routes>
       )}
     
