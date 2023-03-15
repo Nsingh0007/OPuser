@@ -14,7 +14,7 @@ import "./baseLayout.css";
 export function BaseLayout() {
   return (
     <div className='height1 outerDivLogin'>
-      <Header />
+      {/* <Header /> */}
       <Outlet />
     </div>
   )

@@ -42,9 +42,9 @@
   height: 100%;
 }
 
-input::placeholder {
+/* input::placeholder {
   text-indent: 2.5rem;
-}
+} */
 
 /* form {
   width: 85%;

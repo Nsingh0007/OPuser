@@ -21,7 +21,7 @@ export default function CustomInput(props) {
         maxLength === "1" ?
             <StyledInput className={"inputWithIcon"}>
                 {lefticon && <div className="left-icon">{lefticon}</div>}
-                <input ref={ref} type={type} name={name} value={value} style={formControlOtp} maxLength={maxLength} tabIndex={tabIndex} onChange={(e) => onClick(e, tabIndex)} onKeyUp={(e) => onKeyUp(e, tabIndex)} />
+                <input ref={ref} type={type} name={name} value={value} placeholder={placeholder} style={formControlOtp} maxLength={maxLength} tabIndex={tabIndex} onChange={(e) => onClick(e, tabIndex)} onKeyUp={(e) => onKeyUp(e, tabIndex)} />
                 {righticon && <div className="right-icon">{righticon}</div>}
             </StyledInput>
             : <>

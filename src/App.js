@@ -8,6 +8,7 @@ import "./App.css";
 import BaseLayout from "./common/baseLayout";
 import Loader from "./customComponents/loader/loader";
 import AuthStore from "./mobx/auth";
+import Header from "./navigations/header";
 import Otp from "./Pages/auth/password/otp";
 import PrivateLayout from "./Pages/PublicPages/PrivateRoute";
 
@@ -22,15 +23,16 @@ function App() {
 
   useLayoutEffect(() => {
     // console.log("----auth", toJS(AuthStore?.user?.token));
-     AuthStore.setUser(JSON.parse(loginData));
+    AuthStore.setUser(JSON.parse(loginData));
   }, [loginData]);
-  console.log("isVerifiedUser", isVerifiedUser);
-  console.log("auth----", auth);
+  // console.log("isVerifiedUser", isVerifiedUser);
+  // console.log("auth----", auth);
 
   return (
     <div>
       <ToastContainer />
       {loading && <Loader />}
+      <Header />
       {auth &&
         (isVerifiedUser ? (
           <></>
@@ -45,14 +47,14 @@ function App() {
             <Route path="*" element={<Navigate to="/verification" />} />
           </Routes>
         ))
-        }
+      }
       {!auth && (
         <Routes>
           <Route path="auth/*" element={<BaseLayout />} />
-          {/* <Route index element={<Navigate to={RouteConstant.login} />} /> */}
+          <Route index element={<Navigate to={RouteConstant.login} />} />
         </Routes>
       )}
-    
+
     </div>
   );
 }
