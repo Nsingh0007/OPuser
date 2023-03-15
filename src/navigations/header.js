@@ -11,12 +11,13 @@ import { BellIcon } from "../assets/icon/inputIcon";
 export default function Header() {
     const path = window.location.href.split('/')
     const myStyle = { fontStyle: "normal", fontWeight: 600, fontSize: "16px", lineHeight: "20px", color: ThemeColors.white }
+    const user = AuthStore?.user?.user
     const navigate = useNavigate();
     const isVerified = CheckAuth()
     return (
         <header>
-            {/* {!isVerified && <XLargHeading text="Online Practice" />} */}
-            {!isVerified && <img src={logo} alt="logo" />}
+            {!isVerified && <XLargHeading text="KRACKITT" />}
+            {isVerified && <img src={logo} alt="logo" />}
             <div className="H-btn">
                 {path[4] === "login" &&
                     <>
@@ -30,18 +31,16 @@ export default function Header() {
                         <CustomButton width="111px" title="Login" type="submit" background={ThemeColors.bgDark} style={myStyle} func={() => navigate(RouteConstant.login)} />
                     </>
                 }
-                {!isVerified &&
+                {isVerified &&
                     <>
                         <BellIcon />
-                        <SmallHeading text="Nitesh Singh" />
                         <div className="btn-group">
-                            <button className="btn btn-primary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                                Default dropdown
-                            </button>
+                            <div className=" d-flex gap-2 align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                <SmallHeading text="Nitesh Singh" /><img src={logo} alt="logo" className="profileImg" style={{ width: "24px", height: "24px", borderRadius: "50px" }} />
+                            </div>
                             <ul className="dropdown-menu" aria-labelledby="defaultDropdown">
-                                <li><a className="dropdown-item" href="#">Menu item</a></li>
-                                <li><a className="dropdown-item" href="#">Menu item</a></li>
-                                <li><a className="dropdown-item" href="#">Menu item</a></li>
+                                <li><a className="dropdown-item" href="#">Profile</a></li>
+                                <li><a className="dropdown-item" href="#">Sign out</a></li>
                             </ul>
                         </div>
 

@@ -30,7 +30,7 @@ function Otp() {
   }, [])
   useEffect(() => {
     // startCountDown();
-    // getOTPCode(user?.mobileNumber);
+    getOTPCode(user?.mobileNumber);
   }, [])
 
   const getOTPCode = async (mobileNumber) => {
