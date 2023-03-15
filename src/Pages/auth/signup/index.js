@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import * as Yup from "yup";
 import {
   CrossEyeIcon,
@@ -9,22 +10,21 @@ import {
   MailIcon,
   PasswordIcon,
   Phone,
-  UserIcon,
+  UserIcon
 } from "../../../assets/icon/inputIcon";
 import img from "../../../assets/images/layoutImg.png";
 import {
   alphabetOnly,
   emailregex,
   mobileNumber,
-  passwordRegex,
+  passwordRegex
 } from "../../../assets/regex";
 import CustomButton from "../../../customComponents/button/customButton";
 import CustomInput from "../../../customComponents/customTextInput";
 import {
   LargHeading,
-  NormalTileHeading,
+  NormalTileHeading
 } from "../../../customComponents/DynamicText/Heading";
-import AuthStore from "../../../mobx/auth";
 import AuthServices from "../../../services/AuthService";
 import { ThemeColors } from "../../../theme/theme";
 import { RouteConstant } from "../../../utils/routes/constant";
@@ -39,12 +39,16 @@ export default function Signup({ setHeight, width }) {
   }, [setHeight, width]);
 
   const SignUp = async (data) => {
-    const res = await AuthServices.signUp(data);
-    console.log("res", res)
-    if (res) {
+    const res = await AuthServices.signUp(data)
+     console.log("res", res)
+    if (res?.isSuccess) {
       navigate(RouteConstant.verification)
+      toast.success(res?.messages)
     }
-  };
+    else {
+      toast.error(res?.messages)
+    }
+  }
   return (
     <>
       <div className="Aouterflex">
@@ -63,7 +67,6 @@ export default function Signup({ setHeight, width }) {
                 }}
                 onSubmit={async (values) => {
                   console.log("on submit called", values);
-                  // values.mobileNumber=JSON.stringify(values.mobileNumber)
                   values.mobileNumber = `${values?.mobileNumber}`;
                   SignUp(values);
                 }}
@@ -173,15 +176,8 @@ export default function Signup({ setHeight, width }) {
                           )}
                         </div>
                         <div className="col-12 mb-3 pb-1">
-                          <CustomButton
-                            title="Signup"
-                            type="submit"
-                            background={
-                              isValid ? ThemeColors.bgDark : ThemeColors.disable
-                            }
-                            disable={!isValid}
-                          />
-                          {/* <CustomButton title="Signup" type="submit" background={(values?.fullName && values?.email && values?.mobileNumber && values?.password) ? ThemeColors.bgDark : ThemeColors.disable} /> */}
+                          {/* <CustomButton title="Signup" type="submit" background={isValid ? ThemeColors.bgDark : ThemeColors.disable} disable={!isValid}/> */}
+                          <CustomButton title="Signup" type="submit" background={(values?.fullName && values?.email && values?.mobileNumber && values?.password) ? ThemeColors.bgDark : ThemeColors.disable} />
                         </div>
                         <div className="col-12 mb-3 pb-1">
                           <CustomButton
