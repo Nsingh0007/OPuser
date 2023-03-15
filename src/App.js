@@ -47,9 +47,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/verification" />} />
             <Route path="verification" element={<Otp />} />
-            <Route path="upload-photo" element={<UploadPage />} />
             <Route path="institute" element={<SelectInstitute />} />
             <Route path="course" element={<SelectCourse/>} />
+            <Route path="upload-photo" element={<UploadPage />} />
             <Route path="*" element={<Navigate to="/verification" />} />
           </Routes>
         ))}
