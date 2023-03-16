@@ -97,7 +97,7 @@ function Otp() {
    }
       const updateProfile = await AuthServices?.updateProfile(payload);
       if(updateProfile){
-       navigate(RouteConstant.institute)
+       navigate(RouteConstant.dashboard)
       }
     }
     else {
