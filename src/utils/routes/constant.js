@@ -17,7 +17,10 @@ export const ApiPath = {
   login: "api/Account/login",
   signup: "api/Student/studentsignup",
   getOTP: "api/Student/sendotp",
-  editUser:"api/Student/editstudent"
+  editUser:"api/Student/editstudent",
+  getAllInstitute:"api/Course/getcoursesbyinstitute",
+  getInstitutecode:"api/Course/getcoursesbyinstitute",
+  getCoursebyInstitute:"api/Course/getcoursesbyinstitute"
   //#endregion
 };
 

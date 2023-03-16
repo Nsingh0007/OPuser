@@ -1,12 +1,12 @@
-import React from "react";
+import { Formik } from "formik";
+import React, { useEffect } from "react";
 import { InstituteIcon } from "../../assets/icon/inputIcon";
 import img from "../../assets/images/Group33631.png";
 import CustomButton from "../../customComponents/button/customButton";
 import CustomCard from "../../customComponents/card/CustomCard";
 import Dropdown from "../../customComponents/dropdown/dropdown";
 import CardHeading from "../../customComponents/Header/cardheader";
-import { Formik } from "formik";
-import * as Yup from "yup";
+import StudentDetail from "../../services/StudentService";
 import { ThemeColors } from "../../theme/theme";
 
 const onclick = () => {};
@@ -20,6 +20,17 @@ const SelectInstitute = () => {
     width: "100%",
     height: "100vh",
   };
+
+  useEffect(()=>{
+    getAllInstitute();
+  },[])
+
+  const getAllInstitute = async()=>{
+   const res = await StudentDetail?.getAllInstitute();
+    console.log("data check for institute", res);
+
+  }
+
   return (
     <section>
       <div className="outerflex">

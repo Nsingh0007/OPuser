@@ -1,11 +1,12 @@
-import React from "react";
+import { Formik } from "formik";
+import React, { useEffect } from "react";
 import { CourseIcon } from "../../assets/icon/inputIcon";
 import img from "../../assets/images/Group33631.png";
 import CustomButton from "../../customComponents/button/customButton";
 import CustomCard from "../../customComponents/card/CustomCard";
 import Dropdown from "../../customComponents/dropdown/dropdown";
 import CardHeading from "../../customComponents/Header/cardheader";
-import { Field, Formik } from "formik";
+import StudentDetail from "../../services/StudentService";
 import { ThemeColors } from "../../theme/theme";
 export default function SelectCourse() {
   const onclick = () => {};
@@ -17,6 +18,19 @@ export default function SelectCourse() {
     width: "100%",
     height: "100vh",
   };
+
+  useEffect(()=>{
+    getCourseByInstitute();
+  },[])
+
+  
+  const getCourseByInstitute = async()=>{
+    const res = await StudentDetail?.getCourseByInstitute();
+     console.log("data check for course", res);
+ 
+   }
+ 
+  
   return (
     <section>
       <div className="outerflex">

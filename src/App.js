@@ -27,7 +27,7 @@ function App() {
   useLayoutEffect(() => {
     // console.log("----auth", toJS(AuthStore?.user?.token));
     AuthStore.setUser(JSON.parse(loginData));
-  }, [loginData]);
+  }, [loginData ,isVerifiedUser]);
   // console.log("isVerifiedUser", isVerifiedUser);
   // console.log("auth----", auth);
 
